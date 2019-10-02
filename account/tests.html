@@ -96,8 +96,8 @@
                         </button>
 
                         <div class="header-breadcumb">
-                            <h6 class="header-pretitle d-none d-md-block">Pages <i class="feather-chevrons-right"></i> Dashboard</h6>
-                            <h2 class="header-title">Account Overview</h2>
+                            <h6 class="header-pretitle d-none d-md-block">Pages <i class="feather-chevrons-right"></i> Dashboard <i class="feather-chevrons-right"></i> Tests</h6>
+                            <h2 class="header-title">QuickMed Tests</h2>
                         </div>
                     </div>
                    
@@ -108,77 +108,30 @@
                 <div class="container-fluid">
 
                     <div class="row">
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h6 class="text-uppercase font-size-12 text-muted mb-3">Malaria Tests Done</h6>
-                                            <span class="h3 mb-0"> 378 </span>
-                                        </div>
-                                        <div class="col-auto">
-											<a href="tests.html"><button class="btn btn-success btn-lg">Take test</button></a>
-                                        </div>
-                                    </div> <!-- end row -->
-
-                                    
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
+                        <div class="col-lg-6">
+                            <div class="card card-body">
+                                <h4 class="card-title">Malaria Cell Detection</h4>
+                                <p class="card-text">This test takes a microscopic image of a patient blood sample then uses QuickMed's artificial intelligence engine to predict the probability of the presence of malaria cells. This eases the diagnosis of malaria without any cost.</p>
+                                <a href="test-malaria.html" class="btn btn-primary">Take Test</a>
+								
+                            </div>
+                        </div>
                         
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h6 class="text-uppercase font-size-12 text-muted mb-3">qPCR analysis done</h6>
-                                            <span class="h3 mb-0"> 289 </span>
-                                        </div>
-                                        <div class="col-auto">
-											<a href="tests.html"><button class="btn btn-success btn-lg">Take test</button></a>
-                                        </div>
-                                    </div> <!-- end row -->
-
-                                    
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-
-						<div class="col-lg-6 col-xl-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h6 class="text-uppercase font-size-12 text-muted mb-3">Thorax diagnosis done</h6>
-                                            <span class="h3 mb-0"> 198 </span>
-                                        </div>
-                                         <div class="col-auto">
-											<a href="tests.html"><button class="btn btn-success btn-lg">Take test</button></a>
-                                        </div>
-                                    </div> <!-- end row -->
-
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
+						<div class="col-lg-6">
+                            <div class="card card-body">
+                                <h4 class="card-title">qPCR test analysis</h4>
+                                <p class="card-text">This test requires the patient to provide some specific details about themselves to be able to precicely and accurately detect the amount of nucleic acid</p>
+                                <a href="test-qpcr.html" class="btn btn-primary">Take Test</a>
+                            </div>
+                        </div>
 						
-						<div class="col-lg-6 col-xl-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h6 class="text-uppercase font-size-12 text-muted mb-3">Total tests done</h6>
-                                            <span class="h3 mb-0"> 865 </span>
-                                        </div>
-                                         <div class="col-auto">
-											<a href="tests.html"><button class="btn btn-success btn-lg">View all tests</button></a>
-                                        </div>
-                                    </div> <!-- end row -->
-
-                                    
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                        
+						<div class="col-lg-12">
+                            <div class="card card-body">
+                                <h4 class="card-title">Thorax disease diagnosis</h4>
+                                <p class="card-text">This test requires the operator to provide the X-ray of a patient then returns a heatmap of the parts where it identified the disease. QuickMed artificial intelligence engine is able to identify up to 14 thoracic diseases from X-ray images.</p>
+                                <a href="test-xray.html" class="btn btn-primary">Take Test</a>
+                            </div>
+                        </div>
                     </div>
                     <!-- end row-->
 
