@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico' %}">
 
     <!-- App css -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'account/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'account/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'account/assets/css/theme.min.css' %}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -31,10 +32,10 @@
                 <div class="navbar-brand-box">
                     <a href="index.html" class="logo">
                         <span>
-                            <img src="assets/images/logo-light.png" alt="">
+                            <img src="{% static 'account/assets/images/logo-light.png' %}" alt="">
                         </span>
                         <i>
-                            <img src="assets/images/logo-small.png" alt="">
+                            <img src="{% static 'account/assets/images/logo-small.png' %}" alt="">
                         </i>
                     </a>
                 </div>
@@ -52,27 +53,27 @@
                         <li>
                             <a href="tests.html"><i class="fas fa-vial"></i><span>Take Test</span></a>
                         </li>
-						
+
 						<li>
                             <a href="statistics.html"><i class="fas fa-chart-bar"></i><span>Test Statistics</span></a>
                         </li>
-						
+
 						<li>
                             <a href="results.html"><i class="fas fa-history"></i><span>Test History</span></a>
                         </li>
-						
+
 						<li>
                             <a href="billing.html"><i class="fas fa-money-check"></i><span>Billing</span></a>
                         </li>
-						
+
 						<li>
                             <a href="settings.html"><i class="feather-settings"></i><span>Settings</span></a>
                         </li>
-						
+
 						<li>
                             <a href="contact.html"><i class="fas fa-users"></i><span>Contact Us</span></a>
                         </li>
-						
+
 						<li>
                             <a href="logout.html"><i class="feather-power"></i><span>Logout</span></a>
                         </li>
@@ -100,7 +101,7 @@
                             <h2 class="header-title">QuickMed Billing</h2>
                         </div>
                     </div>
-                   
+
                 </div>
             </header>
 
@@ -119,8 +120,8 @@
                                             <h4 class="m-0 d-print-none">Billing Amount</h4>
                                         </div>
                                     </div>
-    
-    
+
+
                                     <div class="row mt-4">
                                         <div class="col-6">
                                             <h6 class="font-weight-bold">TO:</h6>
@@ -140,7 +141,7 @@
                                         </div><!-- end col -->
                                     </div>
                                     <!-- end row -->
-    
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="table-responsive">
@@ -157,7 +158,7 @@
                                                         <td>1</td>
                                                         <td>
                                                             <b>Malaria Cell Detection test</b>
-                                                            
+
                                                         </td>
                                                         <td>378</td>
                                                         <td>&#8358; 100</td>
@@ -167,7 +168,7 @@
                                                         <td>2</td>
                                                         <td>
                                                             <b>qPCR test analysis</b> <br>
-                                                           
+
                                                         </td>
                                                         <td>289</td>
                                                         <td>&#8358; 1000</td>
@@ -176,17 +177,17 @@
                                                     <tr>
                                                         <td>3</td>
                                                         <td>
-                                                            <b>X-ray thoracic diagnosis</b> 
+                                                            <b>X-ray thoracic diagnosis</b>
                                                         </td>
                                                         <td>198</td>
                                                         <td>&#8358; 3,000</td>
                                                         <td class="text-right">&#8358; 594,000</td>
                                                     </tr>
-													
+
 													<tr>
                                                         <td>4</td>
                                                         <td>
-                                                            <b>Result Database Cloud</b> 
+                                                            <b>Result Database Cloud</b>
                                                         </td>
                                                         <td>1</td>
                                                         <td>&#8358; 15,000</td>
@@ -201,12 +202,12 @@
                                         <div class="col-6">
                                             <div class="clearfix pt-5">
                                                 <h6 class="text-muted">Notes:</h6>
-    
+
                                                 <small>
                                                     All accounts are to be paid within 7 days from billing date. To be paid by card or transfer. If account is not paid within 7 days the quickmed account will not be allowed to perfom any tests again.
                                                 </small>
                                             </div>
-    
+
                                         </div>
                                         <div class="col-6">
                                             <div class="float-right">
@@ -215,7 +216,7 @@
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
-    
+
                                     <div class="hidden-print mt-4 mb-4">
                                         <div class="text-right">
                                             <a href="settings.html" class="btn btn-info waves-effect waves-light">Set Billing Info</a>
@@ -252,14 +253,14 @@
 
 
     <!-- jQuery  -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/metismenu.min.js"></script>
-    <script src="assets/js/waves.js"></script>
-    <script src="assets/js/simplebar.min.js"></script>
+    <script src="{% static 'account/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'account/assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'account/assets/js/metismenu.min.js' %}"></script>
+    <script src="{% static 'account/assets/js/waves.js' %}"></script>
+    <script src="{% static 'account/assets/js/simplebar.min.js' %}"></script>
 
     <!-- App js -->
-    <script src="assets/js/theme.js"></script>
+    <script src="{% static 'account/assets/js/theme.js' %}"></script>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico' %}">
 
     <!-- App css -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'account/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'account/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'account/assets/css/theme.min.css' %}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -31,10 +32,10 @@
                 <div class="navbar-brand-box">
                     <a href="index.html" class="logo">
                         <span>
-                            <img src="assets/images/logo-light.png" alt="">
+                            <img src="{% static 'account/assets/images/logo-light.png' %}" alt="">
                         </span>
                         <i>
-                            <img src="assets/images/logo-small.png" alt="">
+                            <img src="{% static 'account/assets/images/logo-small.png' %}" alt="">
                         </i>
                     </a>
                 </div>
@@ -53,27 +54,27 @@
                             <a href="tests.html"><i class="fas fa-vial"></i><span>Take Test</span></a>
                         </li>
 
-                        <li>
+						<li>
                             <a href="statistics.html"><i class="fas fa-chart-bar"></i><span>Test Statistics</span></a>
                         </li>
 
-                        <li>
+						<li>
                             <a href="results.html"><i class="fas fa-history"></i><span>Test History</span></a>
                         </li>
 
-                        <li>
+						<li>
                             <a href="billing.html"><i class="fas fa-money-check"></i><span>Billing</span></a>
                         </li>
 
-                        <li>
+						<li>
                             <a href="settings.html"><i class="feather-settings"></i><span>Settings</span></a>
                         </li>
 
-                        <li>
+						<li>
                             <a href="contact.html"><i class="fas fa-users"></i><span>Contact Us</span></a>
                         </li>
 
-                        <li>
+						<li>
                             <a href="logout.html"><i class="feather-power"></i><span>Logout</span></a>
                         </li>
                     </ul>
@@ -201,7 +202,7 @@
                                                     01/10/2019 15:28:34
                                                 </td>
                                             </tr>
-											
+
 											<tr>
                                                 <td>
                                                     5475
@@ -276,7 +277,7 @@
                                                     01/10/2019 15:28:34
                                                 </td>
                                             </tr>
-											
+
 											<tr>
                                                 <td>
                                                     5475
@@ -351,7 +352,7 @@
                                                     01/10/2019 15:28:34
                                                 </td>
                                             </tr>
-											
+
 											<tr>
                                                 <td>
                                                     5475
@@ -461,16 +462,16 @@
     <!-- Overlay-->
     <div class="menu-overlay"></div>
 
+
     <!-- jQuery  -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/metismenu.min.js"></script>
-    <script src="assets/js/waves.js"></script>
-    <script src="assets/js/simplebar.min.js"></script>
+    <script src="{% static 'account/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'account/assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'account/assets/js/metismenu.min.js' %}"></script>
+    <script src="{% static 'account/assets/js/waves.js' %}"></script>
+    <script src="{% static 'account/assets/js/simplebar.min.js' %}"></script>
 
     <!-- App js -->
-    <script src="assets/js/theme.js"></script>
+    <script src="{% static 'account/assets/js/theme.js' %}"></script>
 
 </body>
-
 </html>
