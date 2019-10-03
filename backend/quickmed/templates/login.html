@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html  >
 <head>
@@ -6,25 +8,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/favicon-107x108-1.png" type="image/x-icon">
   <meta name="description" content="Login to QuickMed to get realtime diagnostics">
-  
+
   <title>Login to QuickMed to get realtime diagnostics</title>
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
-  
+  <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/socicon/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+
+
+
 </head>
 <body>
   <section class="menu cid-rDhZwksPXv" once="menu" id="menu1-s">
 
-    
+
 
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +41,7 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="index.html">
-                         <img src="assets/images/logo.png" alt="QuickMed" title="" style="height: 3.8rem;">
+                         <img src="{% static 'assets/images/logo.png' %}" alt="QuickMed" title="" style="height: 3.8rem;">
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-danger display-2" href="index.html">
@@ -53,7 +55,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link text-danger display-4" href="index.html#features11-b"><span class="mbrib-users mbr-iconfont mbr-iconfont-btn"></span>
-                        
+
                         About Us
                     </a>
                 </li><li class="nav-item"><a class="nav-link link text-danger display-4" href="index.html#content4-j"><span class="mbrib-rocket mbr-iconfont mbr-iconfont-btn"></span>
@@ -67,9 +69,9 @@
 
 <section class="mbr-section form1 cid-rDjTlkFZLE" id="form1-u">
 
-    
 
-    
+
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="title col-12 col-lg-8">
@@ -85,12 +87,13 @@
             <div class="media-container-column col-lg-8">
                 <!---Formbuilder Form--->
                 <form method="POST" class="mbr-form form-with-styler">
+                    {% csrf_token %}
                     <div class="dragArea row">
                         <div class="col-md-12  form-group">
                             <label for="email-form1-u" class="form-control-label mbr-fonts-style display-7">Email Address</label>
                             <input type="email" name="email" required="required" class="form-control display-7" id="email-form1-u">
                         </div>
-                        
+
                         <div class="col-md-12 form-group">
                             <label for="password-form1-u" class="form-control-label mbr-fonts-style display-7">Password</label>
                             <input type="password" name="password" required="required" class="form-control display-7" id="password-form1-u">
@@ -105,15 +108,15 @@
 
 <section class="mbr-section content4 cid-rDjVlViKBA" id="content4-v">
 
-    
+
 
     <div class="container">
         <div class="media-container-row">
             <div class="title col-12 col-md-8">
-                
+
                 <h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5">
                     <a href="index.html#contacts3-f" class="text-danger">Don't have an account? Contact us for one</a></h3>
-                
+
             </div>
         </div>
     </div>
@@ -121,9 +124,9 @@
 
 <section once="footers" class="cid-rDi7hSUkG4" id="footer6-t">
 
-    
 
-    
+
+
 
     <div class="container">
         <div class="media-container-row align-center mbr-white">
@@ -137,15 +140,15 @@
 </section>
 
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/popper/popper.min.js"></script>
-  <script src="assets/tether/tether.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smoothscroll/smooth-scroll.js"></script>
-  <script src="assets/dropdown/js/script.min.js"></script>
-  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  
-  
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/tether/tether.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/dropdown/js/script.min.js' %}"></script>
+  <script src="{% static 'assets/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+
+
 </body>
 </html>
