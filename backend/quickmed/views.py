@@ -22,3 +22,21 @@ def dashboard(request):
     params["history"] = get_user_history("test")
 
     return render (request, 'account/index.html', params)
+
+def taketest(request):
+    return render (request, 'account/tests.html')
+
+def statistics(request):
+    return render (request, 'account/statistics.html')
+def settings(request):
+    return render (request, 'account/settings.html')
+
+def contact(request):
+    return render (request, 'account/contact.html')
+def billing(request):
+    return render (request, 'account/billing.html')
+def test_history(request):
+    params = {"malaria": 378, "qpcr": 289, "xray": 198, "total": 865}
+    params["history"] = get_user_history("results")
+
+    return render(request, 'account/results.html')
