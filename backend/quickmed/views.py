@@ -35,20 +35,26 @@ def statistics(request):
     return render(request, 'account/statistics.html')
 
 def settings(request):
-    return render(request, 'account/settings.html')
+    params = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "account_email": "test@test.com", "card_number": "1234-5678-9012-xxxx"}
+
+    return render(request, 'account/settings.html', params)
 
 def contact(request):
     return render(request, 'account/contact.html')
 
 def billing(request):
-    params = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "hospital_billing_date": "QuickMed Sample Date", "hospital_billing_ID": 12345}
-    params2 = {"malaria": 378, "malaria_cost": 100, "qpcr": 289, "qpcr_cost": 1000, "xray": 198, "xray_cost": 3000, "cloud_cost": 15000}
-    params3 = {"malaria_total": params2["malaria"] * params2["malaria_cost"], "qpcr_total": params2["qpcr"] * params2["qpcr_cost"], "xray_total": params2["xray"] * params2["xray_cost"]}
-    params3["total_cost"] = params3["malaria_total"] + params3["qpcr_total"] + params3["xray_total"]
+    hospital_details = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "hospital_billing_date": "QuickMed Sample Date", "hospital_billing_ID": 12345}
+    test_numbers = {"malaria": 378, "malaria_cost": 100, "qpcr": 289, "qpcr_cost": 1000, "xray": 198, "xray_cost": 3000, "cloud_cost": 15000}
+    test_costs = {"malaria_total": test_numbers["malaria"] * test_numbers["malaria_cost"], "qpcr_total": test_numbers["qpcr"] * test_numbers["qpcr_cost"], "xray_total": test_numbers["xray"] * test_numbers["xray_cost"]}
+    test_costs["total_cost"] = test_costs["malaria_total"] + test_costs["qpcr_total"] + test_costs["xray_total"]
 
-    return render(request, 'account/billing.html', {**{**params, **params2}, **params3})
+    return render(request, 'account/billing.html', {**{**hospital_details, **test_numbers}, **test_costs})
 
 def test_history(request):
     params = {"history": get_user_history("test", "full")}
 
     return render(request, 'account/results.html', params)
+
+def logout(request):
+    # delete user cookies
+    return redirect("../login.html")

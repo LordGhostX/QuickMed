@@ -117,9 +117,10 @@
                                     <p class="card-subtitle mb-4">Change basic account info</p>
 
                                     <form method="post">
+                                        {% csrf_token %}
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="{{ account_email }}">
 
                                         </div>
                                         <div class="form-group">
@@ -138,22 +139,23 @@
 						<div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-
+                                    {% csrf_token %}
                                     <h4 class="card-title">Hospital Details</h4>
                                     <p class="card-subtitle mb-4">Change settings about the hospital</p>
 
                                     <form method="post">
+
                                         <div class="form-group">
                                             <label for="exampleInputText1">Hospital Name</label>
-                                            <input type="text" class="form-control" id="exampleInputText1" placeholder="Hospital Name">
+                                            <input type="text" class="form-control" id="exampleInputText1" placeholder="Hospital Name" value="{{ hospital_name }}">
                                         </div>
 										<div class="form-group">
                                             <label for="exampleInputText2">Hospital Address</label>
-                                            <input type="text" class="form-control" id="exampleInputText2" placeholder="Hospital Address">
+                                            <input type="text" class="form-control" id="exampleInputText2" placeholder="Hospital Address" value="{{ hospital_address }}">
                                         </div>
 										<div class="form-group">
                                             <label for="exampleInputText3">Hospital Phone Number</label>
-                                            <input type="text" class="form-control" id="exampleInputText3" placeholder="Hospital Name">
+                                            <input type="text" class="form-control" id="exampleInputText3" placeholder="Hospital Phone" value="{{ hospital_phone }}">
                                         </div>
                                         <button type="submit" class="btn btn-primary">Save Details</button>
                                     </form>
@@ -171,9 +173,10 @@
                                     <p class="card-subtitle mb-4">Change billing details</p>
 
                                     <form method="post">
+                                        {% csrf_token %}
                                         <div class="form-group">
                                             <label for="exampleInputText4">Card Number</label>
-                                            <input type="text" class="form-control" id="exampleInputText4" placeholder="Card Number">
+                                            <input type="text" class="form-control" id="exampleInputText4" placeholder="Card Number" value="{{ card_number }}">
                                         </div>
                                         <button type="submit" class="btn btn-primary">Save Details</button>
                                     </form>
