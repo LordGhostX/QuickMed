@@ -12,6 +12,4 @@ urlpatterns = [
     path("account/contact.html", views.contact, name="contact"),
     path("account/billing.html", views.billing, name="billing"),
     path("account/results.html", views.test_history, name="test_history")
-    
-
 ]
