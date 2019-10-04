@@ -42,3 +42,5 @@ def test_history(request):
     params["history"] = get_user_history("test")
 
     return render (request, 'account/results.html', params)
+def logout(request):
+    return render(request,'account/logout.html')
