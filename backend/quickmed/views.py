@@ -53,14 +53,9 @@ def billing(request):
 def test_history(request):
     params = {"history": get_user_history("test", "full")}
 
-    return render(request, 'account/results.html', params)
-
-<<<<<<< HEAD
     return render (request, 'account/results.html', params)
-def logout(request):
-    return render(request,'account/logout.html')
-=======
+
+
 def logout(request):
     # delete user cookies
     return redirect("../login.html")
->>>>>>> 6d2029703b12759b01a3396dc15ae60921572302
