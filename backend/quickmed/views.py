@@ -41,7 +41,12 @@ def contact(request):
     return render(request, 'account/contact.html')
 
 def billing(request):
-    return render(request, 'account/billing.html')
+    params = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "hospital_billing_date": "QuickMed Sample Date", "hospital_billing_ID": 12345}
+    params2 = {"malaria": 378, "malaria_cost": 100, "qpcr": 289, "qpcr_cost": 1000, "xray": 198, "xray_cost": 3000, "cloud_cost": 15000}
+    params3 = {"malaria_total": params2["malaria"] * params2["malaria_cost"], "qpcr_total": params2["qpcr"] * params2["qpcr_cost"], "xray_total": params2["xray"] * params2["xray_cost"]}
+    params3["total_cost"] = params3["malaria_total"] + params3["qpcr_total"] + params3["xray_total"]
+
+    return render(request, 'account/billing.html', {**{**params, **params2}, **params3})
 
 def test_history(request):
     params = {"history": get_user_history("test", "full")}

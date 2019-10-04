@@ -114,7 +114,7 @@
                                 <div class="card-body">
                                     <div class="clearfix">
                                         <div class="float-left">
-                                            <img src="assets/images/logo-dark.png" alt="">
+                                            <img src="{% static 'account/assets/images/logo-dark.png' %}" alt="">
                                         </div>
                                         <div class="float-right">
                                             <h4 class="m-0 d-print-none">Billing Amount</h4>
@@ -127,16 +127,16 @@
                                             <h6 class="font-weight-bold">TO:</h6>
 
                                             <address class="line-h-24">
-                                                <b>Sample Hospital</b><br>
-                                                Sample Address<br>
-                                                Sample Phone Number
+                                                <b>{{ hospital_name }}</b><br>
+                                                {{ hospital_address }}<br>
+                                                {{ hospital_phone }}
                                             </address>
                                         </div><!-- end col -->
                                         <div class="col-6">
                                             <div class="mt-3 float-right">
-                                                <p class="mb-2"><strong>Billing Date: </strong> Sample Date</p>
+                                                <p class="mb-2"><strong>Billing Date: </strong> {{ hospital_billing_date }}</p>
                                                 <p class="mb-2"><strong>Order Status: </strong> <span class="badge badge-soft-warning">Unpaid</span></p>
-                                                <p class="m-b-10"><strong>Order ID: </strong> #123456</p>
+                                                <p class="m-b-10"><strong>Order ID: </strong> #{{ hospital_billing_ID }}</p>
                                             </div>
                                         </div><!-- end col -->
                                     </div>
@@ -160,9 +160,9 @@
                                                             <b>Malaria Cell Detection test</b>
 
                                                         </td>
-                                                        <td>378</td>
-                                                        <td>&#8358; 100</td>
-                                                        <td class="text-right">&#8358; 37,800</td>
+                                                        <td>{{ malaria }}</td>
+                                                        <td>&#8358; {{ malaria_cost }}</td>
+                                                        <td class="text-right">&#8358; {{ malaria_total }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
@@ -170,18 +170,18 @@
                                                             <b>qPCR test analysis</b> <br>
 
                                                         </td>
-                                                        <td>289</td>
-                                                        <td>&#8358; 1000</td>
-                                                        <td class="text-right">&#8358; 289,000</td>
+                                                        <td>{{ qpcr }}</td>
+                                                        <td>&#8358; {{ qpcr_cost }}</td>
+                                                        <td class="text-right">&#8358; {{ qpcr_total }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>3</td>
                                                         <td>
                                                             <b>X-ray thoracic diagnosis</b>
                                                         </td>
-                                                        <td>198</td>
-                                                        <td>&#8358; 3,000</td>
-                                                        <td class="text-right">&#8358; 594,000</td>
+                                                        <td>{{ xray }}</td>
+                                                        <td>&#8358; {{ xray_cost }}</td>
+                                                        <td class="text-right">&#8358; {{ xray_total }}</td>
                                                     </tr>
 
 													<tr>
@@ -190,8 +190,8 @@
                                                             <b>Result Database Cloud</b>
                                                         </td>
                                                         <td>1</td>
-                                                        <td>&#8358; 15,000</td>
-                                                        <td class="text-right">&#8358; 15,000</td>
+                                                        <td>&#8358; {{ cloud_cost }}</td>
+                                                        <td class="text-right">&#8358; {{ cloud_cost }}</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -211,7 +211,7 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="float-right">
-                                                <h3>&#8358; 935,800</h3>
+                                                <h3>&#8358; {{ total_cost }}</h3>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
