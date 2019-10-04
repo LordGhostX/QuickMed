@@ -7,7 +7,8 @@ Online platform that uses artificial intelligence to automate hospital diagnosti
 * Built landing page
 * Built dashboard template
 * Project logo
-* Backend - frontend django integration
+* Backend - Frontend Django integration
+* Database setting up
 
 ## TO-DO
 * AI models setups and serving
