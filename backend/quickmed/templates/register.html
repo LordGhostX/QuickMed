@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/favicon-107x108-1.png" type="image/x-icon">
-  <meta name="description" content="Login to QuickMed to get realtime diagnostics">
+  <meta name="description" content="Register">
 
   <title>Login to QuickMed to get realtime diagnostics</title>
   <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css' %}">
@@ -76,9 +76,8 @@
         <div class="row justify-content-center">
             <div class="title col-12 col-lg-8">
                 <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2"><strong>
-                    Login to QuickMed</strong></h2>
-                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-                    Enter your credentials to login to QuickMed to get realtime diagnostics with AI.</h3>
+                    Register</strong></h2>
+
             </div>
         </div>
     </div>
@@ -90,15 +89,24 @@
                     {% csrf_token %}
                     <div class="dragArea row">
                         <div class="col-md-12  form-group">
+                            <label for="name-form1-u" class="form-control-label mbr-fonts-style display-7">Username</label>
+                            <input type="username" name="username" required="required" class="form-control display-7" id="username-form1-u">
+                        </div>
+                    <div class="dragArea row">
+                        <div class="col-md-12  form-group">
                             <label for="email-form1-u" class="form-control-label mbr-fonts-style display-7">Email Address</label>
                             <input type="email" name="email" required="required" class="form-control display-7" id="email-form1-u">
                         </div>
 
                         <div class="col-md-12 form-group">
                             <label for="password-form1-u" class="form-control-label mbr-fonts-style display-7">Password</label>
-                            <input type="password" name="password" required="required" class="form-control display-7" id="password-form1-u">
+                            <input type="password" name="password1" required="required" class="form-control display-7" id="password-form1-u">
                         </div>
-                        <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-form btn-danger display-4">LOGIN</button></div>
+                        <div class="col-md-12 form-group">
+                            <label for="password-form1-u" class="form-control-label mbr-fonts-style display-7">Confirm Password</label>
+                            <input type="password" name="password2" required="required" class="form-control display-7" id="password-form1-u">
+                        </div>
+                        <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-form btn-danger display-4">REGISTER</button></div>
                     </div>
                 </form><!---Formbuilder Form--->
             </div>
@@ -115,12 +123,8 @@
             <div class="title col-12 col-md-8">
 
                 <h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5">
-                  <div>
-                      {% for message in messages %}
-                      <h3> {{message}} </h3>
-                      {% endfor %}
-                  </div>
-                    <a href="index.html#contacts3-f" class="text-danger">Don't have an account? Contact us for one</a></h3>
+
+
 
             </div>
         </div>

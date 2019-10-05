@@ -1,16 +1,46 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.models import User, auth
 
 def index(request):
     return render(request,'index.html')
 
+def register(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        password1 =request.POST['password1']
+        password2 =request.POST['password2']
+
+        if password1==password2:
+            if User.objects.filter(username=username).exists():
+                print('Username taken')
+            elif User.objects.filter(email=email).exists():
+                 print('Email taken')
+            else:
+                user = User.objects.create_user(username=username, password=password1, email=email)
+                user.save()
+                print('user created')
+
+        else:
+            print('Password not matching')
+        return redirect('login.html')
+    else:
+        return render(request, 'register.html')
+
 def login(request):
-    email = request.POST.get("email", None)
-    password = request.POST.get("password", None)
+    if request.method=='POST':
+        email = request.POST['email']
+        password = request.POST['password']
 
-    if email and password:
-        # Validate
-        return redirect('account/index.html')
+        user = auth.authenticate(email=email, password=password)
 
+        if user is not None:
+            auth.login(request, user)
+            return redirect("acount/index.html")
+        else:
+            messages.info(request, 'invalid credentials')
+            return redirect('login.html')
     return render(request, 'login.html')
 
 def get_user_history(user, mode="short"):
