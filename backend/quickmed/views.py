@@ -3,14 +3,17 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
 def index(request):
-    return render(request,'index.html')
+    return render(request, "index.html")
 
 def register(request):
+    # Don't forget to collect hospital name, address, phone number here; or you set default values then let them change that in their dashboard but i think it's best you ask that here
+    # Instead of printing the error messages, just send them to params in the page
+    # And to be honest, i don't see the need for hospitals to have usernames; email and name is enough, it's not a social media
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
-        password1 =request.POST['password1']
-        password2 =request.POST['password2']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
 
         if password1==password2:
             if User.objects.filter(username=username).exists():
@@ -45,7 +48,10 @@ def login(request):
     else:
         return render(request, 'login.html')
 
-def get_user_history(user, mode="short"):
+def get_user_history(user, mode="short", test_type="all"):
+    if test_type != "all":
+        # Select test by test type
+        pass
     history_table = [{"ID": 5000, "type": "Malaria Test", "result": "positive", "date": "01/10/2019 11:59:20"}] * 10
     if mode == "short":
         history_table = history_table[:5]
@@ -56,23 +62,23 @@ def dashboard(request):
     params = {"malaria": 378, "qpcr": 289, "xray": 198, "total": 865}
     params["history"] = get_user_history("test")
 
-    return render(request, 'account/index.html', params)
+    return render(request, "account/index.html", params)
 
 def taketest(request):
     params = {"history": get_user_history("test")}
 
-    return render(request, 'account/tests.html', params)
+    return render(request, "account/tests.html", params)
 
 def statistics(request):
-    return render(request, 'account/statistics.html')
+    return render(request, "account/statistics.html")
 
 def settings(request):
     params = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "account_email": "test@test.com", "card_number": "1234-5678-9012-xxxx"}
 
-    return render(request, 'account/settings.html', params)
+    return render(request, "account/settings.html", params)
 
 def contact(request):
-    return render(request, 'account/contact.html')
+    return render(request, "account/contact.html")
 
 def billing(request):
     hospital_details = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "hospital_billing_date": "QuickMed Sample Date", "hospital_billing_ID": 12345}
@@ -80,12 +86,22 @@ def billing(request):
     test_costs = {"malaria_total": test_numbers["malaria"] * test_numbers["malaria_cost"], "qpcr_total": test_numbers["qpcr"] * test_numbers["qpcr_cost"], "xray_total": test_numbers["xray"] * test_numbers["xray_cost"]}
     test_costs["total_cost"] = test_costs["malaria_total"] + test_costs["qpcr_total"] + test_costs["xray_total"]
 
-    return render(request, 'account/billing.html', {**{**hospital_details, **test_numbers}, **test_costs})
+    return render(request, "account/billing.html", {**{**hospital_details, **test_numbers}, **test_costs})
 
 def test_history(request):
     params = {"history": get_user_history("test", "full")}
 
-    return render (request, 'account/results.html', params)
+    return render(request, "account/results.html", params)
+
+def test_malaria(request):
+    params = {"history": get_user_history("test", test_type="malaria")}
+
+    return render(request, "account/test-malaria.html", params)
+
+def test_xray(request):
+    params = {"history": get_user_history("test", test_type="xray")}
+
+    return render(request, "account/test-xray.html", params)
 
 
 def logout(request):
