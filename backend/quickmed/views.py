@@ -8,20 +8,26 @@ def index(request):
 def register(request):
     # Don't forget to collect hospital name, address, phone number here; or you set default values then let them change that in their dashboard but i think it's best you ask that here
     # Instead of printing the error messages, just send them to params in the page
-    # And to be honest, i don't see the need for hospitals to have usernames; email and name is enough, it's not a social media
+
+
     if request.method == 'POST':
-        username = request.POST['username']
+
+        hospital_name = request.POST['hospital_name']
+        hospital_address = request.POST['hospital_address']
+        hospital_phone = request.POST['hospital_phone']
+        card_number = request.POST['card_number']
+
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
 
         if password1==password2:
-            if User.objects.filter(username=username).exists():
+            if User.objects.filter(hospital_name= hospital_name).exists():
                 print('Username taken')
             elif User.objects.filter(email=email).exists():
                  print('Email taken')
             else:
-                user = User.objects.create_user(username=username, password=password1, email=email)
+                user = User.objects.create_user(hospital_name= hospital_name, password=password1, email=email, hospital_address=hospital_address,hospital_phone=hospital_phone,card_number=card_number  )
                 user.save()
                 print('user created')
 

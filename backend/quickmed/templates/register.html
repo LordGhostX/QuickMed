@@ -88,10 +88,7 @@
                 <form  method="POST" class="mbr-form form-with-styler">
                     {% csrf_token %}
                     <div class="dragArea row">
-                        <div class="col-md-12  form-group">
-                            <label for="name-form1-u" class="form-control-label mbr-fonts-style display-7">Username</label>
-                            <input type="name" name="username" required="required" class="form-control display-7" id="username-form1-u">
-                        </div>
+                        
                     <div class="dragArea row">
                         <div class="col-md-12  form-group">
                             <label for="email-form1-u" class="form-control-label mbr-fonts-style display-7">Email Address</label>
@@ -106,8 +103,21 @@
                             <label for="password-form1-u" class="form-control-label mbr-fonts-style display-7">Confirm Password</label>
                             <input type="password" name="password2" required="required" class="form-control display-7" id="password-form1-u">
                         </div>
+                        <div class="col-md-12 form-group">
+                            <label for="name-form1-u" class="form-control-label mbr-fonts-style display-7">Hospital Name</label>
+                            <input type="name" name="hospital_name" required="required" class="form-control display-7" id="hospital_name-form1-u">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="name-form1-u" class="form-control-label mbr-fonts-style display-7">Hospital Address</label>
+                            <input type="name" name="hospital_address" required="required" class="form-control display-7" id="hospital_address-form1-u">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="name-form1-u" class="form-control-label mbr-fonts-style display-7">Card Number</label>
+                            <input type="name" name="card_number" required="required" class="form-control display-7" id="card_number-form1-u">
+                        </div>
                         <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-form btn-danger display-4">REGISTER</button></div>
                     </div>
+
                 </form><!---Formbuilder Form--->
             </div>
         </div>
