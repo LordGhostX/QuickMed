@@ -44,7 +44,9 @@ def login(request):
         else:
             messages.info(request, 'invalid credentials')
             return redirect('login.html')
-    return render(request, 'login.html')
+
+    else:
+        return render(request, 'login.html')
 
 def get_user_history(user, mode="short", test_type="all"):
     if test_type != "all":
