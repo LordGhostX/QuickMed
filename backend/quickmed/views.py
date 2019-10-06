@@ -1,17 +1,50 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.models import User, auth
 
 def index(request):
     return render(request, "index.html")
 
+def register(request):
+    # Don't forget to collect hospital name, address, phone number here; or you set default values then let them change that in their dashboard but i think it's best you ask that here
+    # Instead of printing the error messages, just send them to params in the page
+    # And to be honest, i don't see the need for hospitals to have usernames; email and name is enough, it's not a social media
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+
+        if password1==password2:
+            if User.objects.filter(username=username).exists():
+                print('Username taken')
+            elif User.objects.filter(email=email).exists():
+                 print('Email taken')
+            else:
+                user = User.objects.create_user(username=username, password=password1, email=email)
+                user.save()
+                print('user created')
+
+        else:
+            print('Password not matching')
+        return redirect('login.html')
+    else:
+        return render(request, 'register.html')
+
 def login(request):
-    email = request.POST.get("email", None)
-    password = request.POST.get("password", None)
+    if request.method=='POST':
+        email = request.POST['email']
+        password = request.POST['password']
 
-    if email and password:
-        # Validate
-        return redirect("account/index.html")
+        user = auth.authenticate(email=email, password=password)
 
-    return render(request, "login.html")
+        if user is not None:
+            auth.login(request, user)
+            return redirect("acount/index.html")
+        else:
+            messages.info(request, 'invalid credentials')
+            return redirect('login.html')
+    return render(request, 'login.html')
 
 def get_user_history(user, mode="short", test_type="all"):
     if test_type != "all":
@@ -60,8 +93,13 @@ def test_history(request):
 
 def test_malaria(request):
     params = {"history": get_user_history("test", test_type="malaria")}
-    
+
     return render(request, "account/test-malaria.html", params)
+
+def test_xray(request):
+    params = {"history": get_user_history("test", test_type="xray")}
+
+    return render(request, "account/test-xray.html", params)
 
 
 def logout(request):
