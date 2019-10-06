@@ -154,45 +154,18 @@
                                                         <th class="text-right">Total</th>
                                                     </tr></thead>
                                                     <tbody>
+													{% for i in range(len(billing_items)) %}
                                                     <tr>
-                                                        <td>1</td>
+                                                        <td>{{ i }}</td>
                                                         <td>
-                                                            <b>Malaria Cell Detection test</b>
+                                                            <b>{{ billing_items[i].name }}</b>
 
                                                         </td>
-                                                        <td>{{ malaria }}</td>
-                                                        <td>&#8358; {{ malaria_cost }}</td>
-                                                        <td class="text-right">&#8358; {{ malaria_total }}</td>
+                                                        <td>{{ billing_items[i].amount }}</td>
+                                                        <td>&#8358; {{ billing_items[i].cost }}</td>
+                                                        <td class="text-right">&#8358; {{ billing_items[i].total }}</td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>
-                                                            <b>qPCR test analysis</b> <br>
-
-                                                        </td>
-                                                        <td>{{ qpcr }}</td>
-                                                        <td>&#8358; {{ qpcr_cost }}</td>
-                                                        <td class="text-right">&#8358; {{ qpcr_total }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>
-                                                            <b>X-ray thoracic diagnosis</b>
-                                                        </td>
-                                                        <td>{{ xray }}</td>
-                                                        <td>&#8358; {{ xray_cost }}</td>
-                                                        <td class="text-right">&#8358; {{ xray_total }}</td>
-                                                    </tr>
-
-													<tr>
-                                                        <td>4</td>
-                                                        <td>
-                                                            <b>Result Database Cloud</b>
-                                                        </td>
-                                                        <td>1</td>
-                                                        <td>&#8358; {{ cloud_cost }}</td>
-                                                        <td class="text-right">&#8358; {{ cloud_cost }}</td>
-                                                    </tr>
+													{% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
