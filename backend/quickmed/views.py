@@ -65,7 +65,20 @@ def taketest(request):
     return render(request, "account/tests.html", params)
 
 def statistics(request):
-    return render(request, "account/statistics.html")
+    test_items = ["malaria", "xray", "skin_cancer", "OCT"]
+    test_costs = {
+        "malaria": {"today": 28, "month": 378, "all": 4536, "name": "Malaria Cell Detection test"},
+        "xray": {"today": 12, "month": 198, "all": 2376, "name": "X-ray thoracic diagnosis"},
+        "skin_cancer": {"today": 19, "month": 289, "all": 3468, "name": "Skin Cancer Classification"},
+        "OCT": {"today": 9, "month": 135, "all": 1620, "name": "Optical Coherence Tomography Analysis"}
+    }
+
+    params = {"test_items": []}
+    for item in test_items:
+        new_params = test_costs[item]
+        params["test_items"].append(new_params)
+
+    return render(request, "account/statistics.html", params)
 
 def settings(request):
     params = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "account_email": "test@test.com", "card_number": "1234-5678-9012-xxxx"}

@@ -107,14 +107,15 @@
 
       <div class="page-content">
         <div class="container-fluid">
-          <h4 class="card-title">Malaria Cell Detection</h4>
+          {% for i in test_items %}
+          <h4 class="card-title">{{ i.name }}</h4>
           <div class="row">
 
             <div class="col-sm-4">
               <div class="card text-white bg-dark">
                 <div class="card-body">
 
-                  <h1 class="text-white">28</h1>
+                  <h1 class="text-white">{{ i.today }}</h1>
                   <p class="text-white">Total tests today</p>
 
                 </div>
@@ -125,7 +126,7 @@
               <div class="card text-white bg-dark">
                 <div class="card-body">
 
-                  <h1 class="text-white">378</h1>
+                  <h1 class="text-white">{{ i.month }}</h1>
                   <p class="text-white">Total tests this month</p>
 
                 </div>
@@ -136,7 +137,7 @@
               <div class="card text-white bg-dark">
                 <div class="card-body">
 
-                  <h1 class="text-white">4,536</h1>
+                  <h1 class="text-white">{{ i.all }}</h1>
                   <p class="text-white">Total tests done</p>
 
                 </div>
@@ -145,84 +146,7 @@
 
           </div>
           <!-- end row-->
-
-          <h4 class="card-title">qPCR test analysis</h4>
-          <div class="row">
-
-            <div class="col-sm-4">
-              <div class="card text-white bg-dark">
-                <div class="card-body">
-
-                  <h1 class="text-white">19</h1>
-                  <p class="text-white">Total tests today</p>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="card text-white bg-dark">
-                <div class="card-body">
-
-                  <h1 class="text-white">289</h1>
-                  <p class="text-white">Total tests this month</p>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="card text-white bg-dark">
-                <div class="card-body">
-
-                  <h1 class="text-white">3,468</h1>
-                  <p class="text-white">Total tests done</p>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <!-- end row-->
-
-          <h4 class="card-title">Thorax diagnosis</h4>
-          <div class="row">
-
-            <div class="col-sm-4">
-              <div class="card text-white bg-dark">
-                <div class="card-body">
-
-                  <h1 class="text-white">12</h1>
-                  <p class="text-white">Total tests today</p>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="card text-white bg-dark">
-                <div class="card-body">
-
-                  <h1 class="text-white">198</h1>
-                  <p class="text-white">Total tests this month</p>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="card text-white bg-dark">
-                <div class="card-body">
-
-                  <h1 class="text-white">2,376</h1>
-                  <p class="text-white">Total tests done</p>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <!-- end row-->
+          {% endfor %}
         </div>
         <!-- container-fluid -->
       </div>
