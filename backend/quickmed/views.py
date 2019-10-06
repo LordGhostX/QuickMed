@@ -94,9 +94,10 @@ def billing(request):
 
     params = {"billing_items": []}
     total_cost = 0
-    for bill in billing_items:
+    for i, bill in enumerate(billing_items):
         new_params = billing_costs[bill]
         new_params["total"] = new_params["amount"] * new_params["cost"]
+        new_params["ID"] = i + 1
         total_cost += new_params["total"]
         params["billing_items"].append(new_params)
     params["total_cost"] = total_cost
