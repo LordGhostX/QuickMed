@@ -57,7 +57,7 @@ def get_user_history(user, mode="short", test_type="all"):
 
 def dashboard(request):
     # call from db
-    params = {"malaria": 378, "qpcr": 289, "xray": 198, "total": 865}
+    params = {"malaria": 378, "skin_cancer": 289, "xray": 198, "OCT": 135, "total": 865}
     params["history"] = get_user_history("test")
 
     return render(request, "account/index.html", params)
@@ -101,6 +101,15 @@ def test_xray(request):
 
     return render(request, "account/test-xray.html", params)
 
+def test_skin_cancer(request):
+    params = {"history": get_user_history("test", test_type="skin_cancer")}
+
+    return render(request, "account/test-skin-cancer.html", params)
+
+def test_oct(request):
+    params = {"history": get_user_history("test", test_type="oct")}
+
+    return render(request, "account/test-oct.html", params)
 
 def logout(request):
     # delete user cookies
