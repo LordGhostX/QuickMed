@@ -64,6 +64,9 @@ def dashboard(request):
 
     return render(request, "account/index.html", params)
 
+def redirect_dashboard(request):
+    return redirect("index.html")
+
 def taketest(request):
     params = {"history": get_user_history("test")}
 
