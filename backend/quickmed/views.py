@@ -6,16 +6,10 @@ def index(request):
     return render(request, "index.html")
 
 def register(request):
-    # Don't forget to collect hospital name, address, phone number here; or you set default values then let them change that in their dashboard but i think it's best you ask that here
-    # Instead of printing the error messages, just send them to params in the page
-
-
     if request.method == 'POST':
-
         hospital_name = request.POST['hospital_name']
         hospital_address = request.POST['hospital_address']
         hospital_phone = request.POST['hospital_phone']
-        card_number = request.POST['card_number']
 
         email = request.POST['email']
         password1 = request.POST['password1']
