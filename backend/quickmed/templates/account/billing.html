@@ -154,16 +154,16 @@
                                                         <th class="text-right">Total</th>
                                                     </tr></thead>
                                                     <tbody>
-													{% for i in range(len(billing_items)) %}
+													{% for i in billing_items %}
                                                     <tr>
-                                                        <td>{{ i }}</td>
+                                                        <td>{{ i.ID }}</td>
                                                         <td>
-                                                            <b>{{ billing_items[i].name }}</b>
+                                                            <b>{{ i.name }}</b>
 
                                                         </td>
-                                                        <td>{{ billing_items[i].amount }}</td>
-                                                        <td>&#8358; {{ billing_items[i].cost }}</td>
-                                                        <td class="text-right">&#8358; {{ billing_items[i].total }}</td>
+                                                        <td>{{ i.amount }}</td>
+                                                        <td>&#8358; {{ i.cost }}</td>
+                                                        <td class="text-right">&#8358; {{ i.total}}</td>
                                                     </tr>
 													{% endfor %}
                                                     </tbody>
