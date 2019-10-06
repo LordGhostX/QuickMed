@@ -41,7 +41,9 @@ def login(request):
         else:
             messages.info(request, 'invalid credentials')
             return redirect('login.html')
-    return render(request, 'login.html')
+
+    else:
+        return render(request, 'login.html')
 
 def get_user_history(user, mode="short"):
     history_table = [{"ID": 5000, "type": "Malaria Test", "result": "positive", "date": "01/10/2019 11:59:20"}] * 10
