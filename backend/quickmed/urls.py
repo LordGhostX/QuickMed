@@ -15,5 +15,8 @@ urlpatterns = [
     path("account/billing.html", views.billing, name="billing"),
     path("account/results.html", views.test_history, name="test_history"),
     path("account/test-malaria.html", views.test_malaria, name="malaria_test"),
+    path("account/test-xray.html", views.test_xray, name="xray_test"),
+    path("account/test-skin-cancer.html", views.test_skin_cancer, name="skin_cancer_test"),
+    path("account/test-oct.html", views.test_oct, name="skin_oct"),
     path("account/logout.html", views.logout, name="logout")
 ]

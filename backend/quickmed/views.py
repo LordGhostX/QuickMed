@@ -65,7 +65,7 @@ def get_user_history(user, mode="short", test_type="all"):
 
 def dashboard(request):
     # call from db
-    params = {"malaria": 378, "qpcr": 289, "xray": 198, "total": 865}
+    params = {"malaria": 378, "skin_cancer": 289, "xray": 198, "OCT": 135, "total": 865}
     params["history"] = get_user_history("test")
 
     return render(request, "account/index.html", params)
@@ -88,11 +88,26 @@ def contact(request):
 
 def billing(request):
     hospital_details = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "hospital_billing_date": "QuickMed Sample Date", "hospital_billing_ID": 12345}
-    test_numbers = {"malaria": 378, "malaria_cost": 100, "qpcr": 289, "qpcr_cost": 1000, "xray": 198, "xray_cost": 3000, "cloud_cost": 15000}
-    test_costs = {"malaria_total": test_numbers["malaria"] * test_numbers["malaria_cost"], "qpcr_total": test_numbers["qpcr"] * test_numbers["qpcr_cost"], "xray_total": test_numbers["xray"] * test_numbers["xray_cost"]}
-    test_costs["total_cost"] = test_costs["malaria_total"] + test_costs["qpcr_total"] + test_costs["xray_total"]
 
-    return render(request, "account/billing.html", {**{**hospital_details, **test_numbers}, **test_costs})
+    billing_items = ["malaria", "xray", "skin_cancer", "OCT", "cloud"]
+    billing_costs = {
+        "malaria": {"amount": 378, "cost": 100, "name": "Malaria Cell Detection test"},
+        "xray": {"amount": 198, "cost": 1000, "name": "X-ray thoracic diagnosis"},
+        "skin_cancer": {"amount": 289, "cost": 1000, "name": "Skin Cancer Classification"},
+        "OCT": {"amount": 135, "cost": 2500, "name": "Optical Coherence Tomography Analysis"},
+        "cloud": {"amount": 1, "cost": 15000, "name": "Result Database Cloud"}
+    }
+
+    params = {"billing_items": []}
+    total_cost = 0
+    for bill in billing_items:
+        new_params = billing_costs[bill]
+        new_params["total"] = new_params["amount"] * new_params["cost"]
+        total_cost += new_params["total"]
+        params["billing_items"].append(new_params)
+    params["total_cost"] = total_cost
+
+    return render(request, "account/billing.html", {**hospital_details, **params})
 
 def test_history(request):
     params = {"history": get_user_history("test", "full")}
@@ -109,6 +124,15 @@ def test_xray(request):
 
     return render(request, "account/test-xray.html", params)
 
+def test_skin_cancer(request):
+    params = {"history": get_user_history("test", test_type="skin_cancer")}
+
+    return render(request, "account/test-skin-cancer.html", params)
+
+def test_oct(request):
+    params = {"history": get_user_history("test", test_type="oct")}
+
+    return render(request, "account/test-oct.html", params)
 
 def logout(request):
     # delete user cookies

@@ -1,4 +1,4 @@
-![home.jpg](assets/images/home-1348x652.jpg)
+![home.jpg](home.jpg)
 # QuickMed
 
 Online platform that uses artificial intelligence to automate hospital diagnostics
