@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+from .extras import get_user_history
 
 def index(request):
     return render(request, "index.html")
@@ -47,15 +48,6 @@ def login(request):
 
     else:
         return render(request, 'login.html')
-
-def get_user_history(user, mode="short", test_type="all"):
-    if test_type != "all":
-        # Select test by test type
-        pass
-    history_table = [{"ID": 5000, "type": "Malaria Test", "result": "positive", "date": "01/10/2019 11:59:20"}] * 10
-    if mode == "short":
-        history_table = history_table[:5]
-    return history_table
 
 def dashboard(request):
     # call from db

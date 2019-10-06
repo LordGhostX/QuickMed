@@ -3,192 +3,196 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>QuickMed Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8" />
+  <title>QuickMed Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico' %}">
+  <!-- App favicon -->
+  <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico' %}">
 
-    <!-- App css -->
-    <link href="{% static 'account/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'account/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'account/assets/css/theme.min.css' %}" rel="stylesheet" type="text/css" />
+  <!-- App css -->
+  <link href="{% static 'account/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'account/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'account/assets/css/theme.min.css' %}" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
 
-    <!-- Begin page -->
-    <div id="layout-wrapper">
+  <!-- Begin page -->
+  <div id="layout-wrapper">
 
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="vertical-menu">
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu">
 
-            <div data-simplebar class="h-100">
+      <div data-simplebar class="h-100">
 
-                <!-- LOGO -->
-                <div class="navbar-brand-box">
-                    <a href="index.html" class="logo">
-                        <span>
-                            <img src="{% static 'account/assets/images/logo-light.png' %}" alt="">
-                        </span>
-                        <i>
-                            <img src="{% static 'account/assets/images/logo-small.png' %}" alt="">
-                        </i>
-                    </a>
-                </div>
-
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-                    <!-- Left Menu Start -->
-                    <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Menu</li>
-
-                        <li>
-                            <a href="index.html"><i class="feather-home"></i><span>Dashboard</span></a>
-                        </li>
-
-                        <li>
-                            <a href="tests.html"><i class="fas fa-vial"></i><span>Take Test</span></a>
-                        </li>
-
-						<li>
-                            <a href="statistics.html"><i class="fas fa-chart-bar"></i><span>Test Statistics</span></a>
-                        </li>
-
-						<li>
-                            <a href="results.html"><i class="fas fa-history"></i><span>Test History</span></a>
-                        </li>
-
-						<li>
-                            <a href="billing.html"><i class="fas fa-money-check"></i><span>Billing</span></a>
-                        </li>
-
-						<li>
-                            <a href="settings.html"><i class="feather-settings"></i><span>Settings</span></a>
-                        </li>
-
-						<li>
-                            <a href="contact.html"><i class="fas fa-users"></i><span>Contact Us</span></a>
-                        </li>
-
-						<li>
-                            <a href="logout.html"><i class="feather-power"></i><span>Logout</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Sidebar -->
-            </div>
+        <!-- LOGO -->
+        <div class="navbar-brand-box">
+          <a href="index.html" class="logo">
+            <span>
+              <img src="{% static 'account/assets/images/logo-light.png' %}" alt="">
+            </span>
+            <i>
+              <img src="{% static 'account/assets/images/logo-small.png' %}" alt="">
+            </i>
+          </a>
         </div>
-        <!-- Left Sidebar End -->
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+          <!-- Left Menu Start -->
+          <ul class="metismenu list-unstyled" id="side-menu">
+            <li class="menu-title">Menu</li>
 
-            <header id="page-topbar">
-                <div class="navbar-header">
-                    <div class="d-flex align-items-center">
-                        <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">
-                            <i class="fa fa-fw fa-bars"></i>
-                        </button>
+            <li>
+              <a href="index.html"><i class="feather-home"></i><span>Dashboard</span></a>
+            </li>
 
-                        <div class="header-breadcumb">
-                            <h6 class="header-pretitle d-none d-md-block">Pages <i class="feather-chevrons-right"></i> Dashboard <i class="feather-chevrons-right"></i> Results</h6>
-                            <h2 class="header-title">QuickMed Results</h2>
-                        </div>
-                    </div>
+            <li>
+              <a href="tests.html"><i class="fas fa-vial"></i><span>Take Test</span></a>
+            </li>
 
-                </div>
-            </header>
+            <li>
+              <a href="statistics.html"><i class="fas fa-chart-bar"></i><span>Test Statistics</span></a>
+            </li>
 
-            <div class="page-content">
-                <div class="container-fluid">
+            <li>
+              <a href="results.html"><i class="fas fa-history"></i><span>Test History</span></a>
+            </li>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Recent tests done</h4>
-                                    <p class="card-subtitle mb-4">
-                                        This shows all tests done with QuickMed platform
-                                    </p>
+            <li>
+              <a href="billing.html"><i class="fas fa-money-check"></i><span>Billing</span></a>
+            </li>
 
-                                    <table id="basic-datatable" class="table table-centered table-striped table-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Test type</th>
-                                                <th>Result</th>
-                                                <th>Date</th>
-                                            </tr>
-                                        </thead>
+            <li>
+              <a href="settings.html"><i class="feather-settings"></i><span>Settings</span></a>
+            </li>
 
-                                        <tbody>
-                                          {% for i in history %}
-                                            <tr>
-                                                <td>
-                        {{ i.ID }}
-                                                </td>
-                      <td>
-                        {{ i.type }}
-                                                </td>
-                      <td>
-                        {{ i.result }}
-                                                </td>
-                      <td>
-                        {{ i.date }}
-                                                </td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
+            <li>
+              <a href="contact.html"><i class="fas fa-users"></i><span>Contact Us</span></a>
+            </li>
 
-                                </div>
-                                <!-- end card body-->
-                            </div>
-                            <!-- end card -->
-                        </div>
-                    </div>
-                    <!-- end row-->
+            <li>
+              <a href="logout.html"><i class="feather-power"></i><span>Logout</span></a>
+            </li>
+          </ul>
+        </div>
+        <!-- Sidebar -->
+      </div>
+    </div>
+    <!-- Left Sidebar End -->
 
-                </div>
-                <!-- container-fluid -->
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+      <header id="page-topbar">
+        <div class="navbar-header">
+          <div class="d-flex align-items-center">
+            <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">
+              <i class="fa fa-fw fa-bars"></i>
+            </button>
+
+            <div class="header-breadcumb">
+              <h6 class="header-pretitle d-none d-md-block">Account <i class="feather-chevrons-right"></i> Dashboard <i class="feather-chevrons-right"></i> Results</h6>
+              <h2 class="header-title">QuickMed Results</h2>
             </div>
-            <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            Copyright © 2019 QuickMed
-                        </div>
-                    </div>
-                </div>
-            </footer>
+          </div>
 
         </div>
-        <!-- end main content-->
+      </header>
+
+      <div class="page-content">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Recent tests done</h4>
+                  <p class="card-subtitle mb-4">
+                    This shows all tests done with QuickMed platform
+                  </p>
+
+                  <table class="table table-centered table-striped table-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Test type</th>
+                        <th>Result</th>
+                        <th>Date</th>
+                        <th>Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in history %}
+                      <tr>
+                        <td>
+                          {{ i.ID }}
+                        </td>
+                        <td>
+                          {{ i.type }}
+                        </td>
+                        <td>
+                          {{ i.result }}
+                        </td>
+                        <td>
+                          {{ i.date }}
+                        </td>
+                        <td>
+                          {{ i.notes }}
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+
+                </div>
+                <!-- end card body-->
+              </div>
+              <!-- end card -->
+            </div>
+          </div>
+          <!-- end row-->
+
+        </div>
+        <!-- container-fluid -->
+      </div>
+      <!-- End Page-content -->
+
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12">
+              Copyright © 2019 QuickMed
+            </div>
+          </div>
+        </div>
+      </footer>
 
     </div>
-    <!-- END layout-wrapper -->
+    <!-- end main content-->
 
-    <!-- Overlay-->
-    <div class="menu-overlay"></div>
+  </div>
+  <!-- END layout-wrapper -->
+
+  <!-- Overlay-->
+  <div class="menu-overlay"></div>
 
 
-    <!-- jQuery  -->
-    <script src="{% static 'account/assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'account/assets/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'account/assets/js/metismenu.min.js' %}"></script>
-    <script src="{% static 'account/assets/js/waves.js' %}"></script>
-    <script src="{% static 'account/assets/js/simplebar.min.js' %}"></script>
+  <!-- jQuery  -->
+  <script src="{% static 'account/assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'account/assets/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'account/assets/js/metismenu.min.js' %}"></script>
+  <script src="{% static 'account/assets/js/waves.js' %}"></script>
+  <script src="{% static 'account/assets/js/simplebar.min.js' %}"></script>
 
-    <!-- App js -->
-    <script src="{% static 'account/assets/js/theme.js' %}"></script>
+  <!-- App js -->
+  <script src="{% static 'account/assets/js/theme.js' %}"></script>
 
 </body>
+
 </html>
