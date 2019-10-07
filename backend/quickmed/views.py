@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+from .models import UserProfile
 from .extras import get_user_history, get_billing_history
 
 def index(request):
@@ -20,8 +21,10 @@ def register(request):
             if User.objects.filter(email=email).exists():
                  return render(request, 'register.html', {"error_messages": "The email has been previously registered"})
             else:
-                user = User.objects.create_user(hospital_name=hospital_name, password=password1, email=email, hospital_address=hospital_address, hospital_phone=hospital_phone)
+                user = User.objects.create(username=email,  password=password1, email=email )
                 user.save()
+                profile = UserProfile.objects.create(user=user,hospital_name=hospital_name, hospital_address=hospital_address, hospital_phone=hospital_phone)
+                profile.save()
                 print('user created')
 
         else:
@@ -35,14 +38,15 @@ def login(request):
         email = request.POST['email']
         password = request.POST['password']
 
-        user = auth.authenticate(email=email, password=password)
+        user = auth.authenticate(username=email, password=password)
+        print(user)
 
         if user is not None:
             auth.login(request, user)
-            return redirect("acount/index.html")
+            return redirect("account/index.html")
         else:
             messages.info(request, 'invalid credentials')
-            return redirect('login.html')
+            return redirect('account/index.html')
 
     else:
         return render(request, 'login.html')
