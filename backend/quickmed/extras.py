@@ -1,4 +1,3 @@
-import hashlib
 import string
 import random
 
@@ -14,14 +13,6 @@ def generate_password(minimum=16, maximum=25):
 
     password = "".join(random.sample(char_list, random.randint(minimum, maximum)))
     return password
-
-def generate_hash(uniq_id, password, seed="o;(rXaJ4\0VnH6#ml9)B", rounds=100):
-    hash = hashlib.sha512((seed + uniq_id + seed + password + seed).encode()).hexdigest()[::-1]
-    for round in range(rounds):
-        hash = hashlib.sha512((seed + hash + seed).encode()).hexdigest()[::-1].swapcase()
-    hash = hashlib.sha512((seed + hash + seed).encode()).hexdigest()
-
-    return hash
 
 def get_user_history(user, mode="short", test_type="all"):
     if test_type != "all":
