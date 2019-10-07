@@ -117,7 +117,7 @@
                       <img src="{% static 'account/assets/images/logo-dark.png' %}" alt="">
                     </div>
                     <div class="float-right">
-                      <h4 class="m-0 d-print-none">Billing Amount</h4>
+                      <h4 class="m-0 d-print-none">Monthly Billing Information</h4>
                     </div>
                   </div>
 
@@ -135,7 +135,6 @@
                     <div class="col-6">
                       <div class="mt-3 float-right">
                         <p class="mb-2"><strong>Billing Date: </strong> {{ hospital_billing_date }}</p>
-                        <p class="mb-2"><strong>Order Status: </strong> <span class="badge badge-soft-warning">Unpaid</span></p>
                         <p class="m-b-10"><strong>Order ID: </strong> #{{ hospital_billing_ID }}</p>
                       </div>
                     </div><!-- end col -->
@@ -178,9 +177,9 @@
                       <div class="clearfix pt-5">
                         <h6 class="text-muted">Notes:</h6>
 
-                        <small>
-                          All accounts are to be paid within 7 days from billing date. To be paid by card or transfer. If account is not paid within 7 days the quickmed account will not be allowed to perfom any tests again.
-                        </small>
+                        <p>
+                          All accounts are to be paid within 7 days from billing date either by card or transfer. If the bill is not paid within 7 days, your quickmed account will not be allowed to perfom any tests again.
+                        </p>
                       </div>
 
                     </div>
@@ -194,7 +193,8 @@
 
                   <div class="hidden-print mt-4 mb-4">
                     <div class="text-right">
-                      <a href="settings.html" class="btn btn-info waves-effect waves-light">Set Billing Info</a>
+                      <a href="billing-history.html" class="btn btn-info waves-effect waves-light"><i class="fas fa-clipboard-list"></i> Billing History</a>
+                      <a href="settings.html#billing-settings" class="btn btn-warning waves-effect waves-light"><i class="fas fa-cogs"></i> Manage Billing Settings</a>
                     </div>
                   </div>
                 </div>

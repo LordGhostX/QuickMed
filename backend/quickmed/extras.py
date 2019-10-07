@@ -30,5 +30,10 @@ def get_user_history(user, mode="short", test_type="all"):
     history_table = [{"ID": 5000, "type": "Malaria Test", "result": "positive", "date": "01/10/2019 11:59:20", "notes": "Sample Test"}] * 10
     if mode == "short":
         history_table = history_table[:5]
-        
+
     return history_table
+
+def get_billing_history(user):
+    billing_table = [{"ID": 12345, "date": "01/10/2019 11:59:20", "amount": 1000000, "card": "1234-5678-9012-xxxx", "status": "paid"}] * 10
+
+    return billing_table

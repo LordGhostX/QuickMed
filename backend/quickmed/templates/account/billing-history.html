@@ -1,4 +1,4 @@
-<i class="fas fa-vial"></i> {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,8 +97,8 @@
             </button>
 
             <div class="header-breadcumb">
-              <h6 class="header-pretitle d-none d-md-block">Account <i class="feather-chevrons-right"></i> Dashboard</h6>
-              <h2 class="header-title">Account Overview</h2>
+              <h6 class="header-pretitle d-none d-md-block">Account <i class="feather-chevrons-right"></i> Dashboard <i class="feather-chevrons-right"></i> Billing <i class="feather-chevrons-right"></i> History</h6>
+              <h2 class="header-title">QuickMed Billing History</h2>
             </div>
           </div>
 
@@ -109,113 +109,23 @@
         <div class="container-fluid">
 
           <div class="row">
-            <div class="col-lg-6 col-xl-6">
+            <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <div class="row align-items-center">
-                    <div class="col">
-                      <h6 class="text-uppercase font-size-12 text-muted mb-3">Malaria Tests Done</h6>
-                      <span class="h3 mb-0"> {{ malaria }} </span>
-                    </div>
-                    <div class="col-auto">
-                      <a href="test-malaria.html"><button class="btn btn-success btn-lg"><i class="fas fa-vial"></i> Take test</button></a>
-                    </div>
-                  </div> <!-- end row -->
-
-
-                </div> <!-- end card-body-->
-              </div> <!-- end card-->
-            </div> <!-- end col-->
-
-            <div class="col-lg-6 col-xl-6">
-              <div class="card">
-                <div class="card-body">
-                  <div class="row align-items-center">
-                    <div class="col">
-                      <h6 class="text-uppercase font-size-12 text-muted mb-3">Skin Cancer Tests Done</h6>
-                      <span class="h3 mb-0"> {{ skin_cancer }} </span>
-                    </div>
-                    <div class="col-auto">
-                      <a href="test-skin-cancer.html"><button class="btn btn-success btn-lg"><i class="fas fa-vial"></i> Take test</button></a>
-                    </div>
-                  </div> <!-- end row -->
-
-
-                </div> <!-- end card-body-->
-              </div> <!-- end card-->
-            </div> <!-- end col-->
-
-            <div class="col-lg-6 col-xl-6">
-              <div class="card">
-                <div class="card-body">
-                  <div class="row align-items-center">
-                    <div class="col">
-                      <h6 class="text-uppercase font-size-12 text-muted mb-3">Thorax diagnosis done</h6>
-                      <span class="h3 mb-0"> {{ xray }} </span>
-                    </div>
-                    <div class="col-auto">
-                      <a href="test-xray.html"><button class="btn btn-success btn-lg"><i class="fas fa-vial"></i> Take test</button></a>
-                    </div>
-                  </div> <!-- end row -->
-
-                </div> <!-- end card-body-->
-              </div> <!-- end card-->
-            </div> <!-- end col-->
-
-            <div class="col-lg-6 col-xl-6">
-              <div class="card">
-                <div class="card-body">
-                  <div class="row align-items-center">
-                    <div class="col">
-                      <h6 class="text-uppercase font-size-12 text-muted mb-3">Optical Coherence Test done</h6>
-                      <span class="h3 mb-0"> {{ OCT }} </span>
-                    </div>
-                    <div class="col-auto">
-                      <a href="test-oct.html"><button class="btn btn-success btn-lg"><i class="fas fa-vial"></i> Take test</button></a>
-                    </div>
-                  </div> <!-- end row -->
-
-                </div> <!-- end card-body-->
-              </div> <!-- end card-->
-            </div> <!-- end col-->
-
-            <div class="col-lg-6 col-xl-12">
-              <div class="card">
-                <div class="card-body">
-                  <div class="row align-items-center">
-                    <div class="col">
-                      <h6 class="text-uppercase font-size-12 text-muted mb-3">Total tests done</h6>
-                      <span class="h3 mb-0"> {{ total }} </span>
-                    </div>
-                    <div class="col-auto">
-                      <a href="tests.html"><button class="btn btn-success btn-lg"><i class="fas fa-clipboard-list"></i> View all tests</button></a>
-                    </div>
-                  </div> <!-- end row -->
-
-
-                </div> <!-- end card-body-->
-              </div> <!-- end card-->
-            </div> <!-- end col-->
-
-          </div>
-          <!-- end row-->
-
-          <div class="row">
-            <div class="col-xl-12">
-              <div class="card">
-                <div class="card-body">
-
                   <h4 class="card-title">Recent tests done</h4>
+                  <p class="card-subtitle mb-4">
+                    This shows all tests done with QuickMed platform
+                  </p>
 
                   <div class="table-responsive">
                     <table class="table table-centered table-striped table-nowrap">
                       <thead>
                         <tr>
-                          <th>ID</th>
-                          <th>Test type</th>
-                          <th>Result</th>
+                          <th>Order ID</th>
                           <th>Date</th>
-                          <th>Notes</th>
+                          <th>Amount</th>
+                          <th>Card</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -225,16 +135,16 @@
                             {{ i.ID }}
                           </td>
                           <td>
-                            {{ i.type }}
-                          </td>
-                          <td>
-                            {{ i.result }}
-                          </td>
-                          <td>
                             {{ i.date }}
                           </td>
                           <td>
-                            {{ i.notes }}
+                            &#8358; {{ i.amount }}
+                          </td>
+                          <td>
+                            {{ i.card }}
+                          </td>
+                          <td>
+                            {{ i.status }}
                           </td>
                         </tr>
                         {% endfor %}
@@ -242,13 +152,16 @@
                     </table>
                   </div>
 
-                </div> <!-- end card-body-->
-              </div> <!-- end card-->
-            </div> <!-- end col -->
+                </div>
+                <!-- end card body-->
+              </div>
+              <!-- end card -->
+            </div>
           </div>
           <!-- end row-->
 
-        </div> <!-- container-fluid -->
+        </div>
+        <!-- container-fluid -->
       </div>
       <!-- End Page-content -->
 

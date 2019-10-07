@@ -117,38 +117,40 @@
                     This shows all tests done with QuickMed platform
                   </p>
 
-                  <table class="table table-centered table-striped table-nowrap">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Test type</th>
-                        <th>Result</th>
-                        <th>Date</th>
-                        <th>Notes</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% for i in history %}
-                      <tr>
-                        <td>
-                          {{ i.ID }}
-                        </td>
-                        <td>
-                          {{ i.type }}
-                        </td>
-                        <td>
-                          {{ i.result }}
-                        </td>
-                        <td>
-                          {{ i.date }}
-                        </td>
-                        <td>
-                          {{ i.notes }}
-                        </td>
-                      </tr>
-                      {% endfor %}
-                    </tbody>
-                  </table>
+                  <div class="table-responsive">
+                    <table class="table table-centered table-striped table-nowrap">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Test type</th>
+                          <th>Result</th>
+                          <th>Date</th>
+                          <th>Notes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in history %}
+                        <tr>
+                          <td>
+                            {{ i.ID }}
+                          </td>
+                          <td>
+                            {{ i.type }}
+                          </td>
+                          <td>
+                            {{ i.result }}
+                          </td>
+                          <td>
+                            {{ i.date }}
+                          </td>
+                          <td>
+                            {{ i.notes }}
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
 
                 </div>
                 <!-- end card body-->

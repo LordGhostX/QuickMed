@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from .extras import get_user_history
+from .extras import get_user_history, get_billing_history
 
 def index(request):
     return render(request, "index.html")
@@ -140,3 +140,8 @@ def test_oct(request):
 def logout(request):
     # delete user cookies
     return redirect("../login.html")
+
+def billing_history(request):
+    params = {"history": get_billing_history("test")}
+
+    return render(request, "account/billing-history.html", params)
