@@ -97,8 +97,8 @@
             </button>
 
             <div class="header-breadcumb">
-              <h6 class="header-pretitle d-none d-md-block">Account <i class="feather-chevrons-right"></i> Dashboard <i class="feather-chevrons-right"></i> Contacts</h6>
-              <h2 class="header-title">QuickMed Contacts</h2>
+              <h6 class="header-pretitle d-none d-md-block">Account <i class="feather-chevrons-right"></i> Dashboard <i class="feather-chevrons-right"></i> Billing <i class="feather-chevrons-right"></i> History</h6>
+              <h2 class="header-title">QuickMed Billing History</h2>
             </div>
           </div>
 
@@ -112,50 +112,56 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <div id="snow-editor">
-                    <h3><span class="ql-size-large">Contact QuickMed</span></h3>
+                  <h4 class="card-title">Recent tests done</h4>
+                  <p class="card-subtitle mb-4">
+                    This shows all tests done with QuickMed platform
+                  </p>
 
-                  </div> <!-- end Snow-editor-->
-                </div> <!-- end card-body-->
-              </div> <!-- end card-->
-            </div>
+                  <div class="table-responsive">
+                    <table class="table table-centered table-striped table-nowrap">
+                      <thead>
+                        <tr>
+                          <th>Order ID</th>
+                          <th>Date</th>
+                          <th>Amount</th>
+                          <th>Card</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in history %}
+                        <tr>
+                          <td>
+                            {{ i.ID }}
+                          </td>
+                          <td>
+                            {{ i.date }}
+                          </td>
+                          <td>
+                            &#8358; {{ i.amount }}
+                          </td>
+                          <td>
+                            {{ i.card }}
+                          </td>
+                          <td>
+                            {{ i.status }}
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
 
-            <div class="col-lg-6">
-              <div class="card card-body">
-                <h4 class="card-title"><i class="fas fa-map-marker-alt"></i> Physical Address</h4>
-                <p class="card-text">University of Lagos, Akoka Rd, Yaba, Lagos</p>
-
+                </div>
+                <!-- end card body-->
               </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="card card-body">
-                <h4 class="card-title"><i class="fas fa-phone"></i> Contact Number</h4>
-                <p class="card-text">+234 701 731 9827</p>
-
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="card card-body">
-                <h4 class="card-title"><i class="fas fa-envelope"></i> Email Address</h4>
-                <p class="card-text">info@quickmed.ml</p>
-
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="card card-body">
-                <h4 class="card-title"><i class="fas fa-business-time"></i> Working Hours</h4>
-                <p class="card-text">The platform is available 24/7/365</p>
-
-              </div>
+              <!-- end card -->
             </div>
           </div>
           <!-- end row-->
 
-
-        </div> <!-- container-fluid -->
+        </div>
+        <!-- container-fluid -->
       </div>
       <!-- End Page-content -->
 

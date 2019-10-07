@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+from .extras import get_user_history, get_billing_history
 
 def index(request):
     return render(request, "index.html")
@@ -48,15 +49,6 @@ def login(request):
     else:
         return render(request, 'login.html')
 
-def get_user_history(user, mode="short", test_type="all"):
-    if test_type != "all":
-        # Select test by test type
-        pass
-    history_table = [{"ID": 5000, "type": "Malaria Test", "result": "positive", "date": "01/10/2019 11:59:20"}] * 10
-    if mode == "short":
-        history_table = history_table[:5]
-    return history_table
-
 def dashboard(request):
     # call from db
     params = {"malaria": 378, "skin_cancer": 289, "xray": 198, "OCT": 135, "total": 865}
@@ -73,7 +65,20 @@ def taketest(request):
     return render(request, "account/tests.html", params)
 
 def statistics(request):
-    return render(request, "account/statistics.html")
+    test_items = ["malaria", "xray", "skin_cancer", "OCT"]
+    test_costs = {
+        "malaria": {"today": 28, "month": 378, "all": 4536, "name": "Malaria Cell Detection test"},
+        "xray": {"today": 12, "month": 198, "all": 2376, "name": "X-ray thoracic diagnosis"},
+        "skin_cancer": {"today": 19, "month": 289, "all": 3468, "name": "Skin Cancer Classification"},
+        "OCT": {"today": 9, "month": 135, "all": 1620, "name": "Optical Coherence Tomography Analysis"}
+    }
+
+    params = {"test_items": []}
+    for item in test_items:
+        new_params = test_costs[item]
+        params["test_items"].append(new_params)
+
+    return render(request, "account/statistics.html", params)
 
 def settings(request):
     params = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "account_email": "test@test.com", "card_number": "1234-5678-9012-xxxx"}
@@ -135,3 +140,8 @@ def test_oct(request):
 def logout(request):
     # delete user cookies
     return redirect("../login.html")
+
+def billing_history(request):
+    params = {"history": get_billing_history("test")}
+
+    return render(request, "account/billing-history.html", params)

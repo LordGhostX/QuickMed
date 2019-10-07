@@ -18,5 +18,6 @@ urlpatterns = [
     path("account/test-xray.html", views.test_xray, name="xray_test"),
     path("account/test-skin-cancer.html", views.test_skin_cancer, name="skin_cancer_test"),
     path("account/test-oct.html", views.test_oct, name="skin_oct"),
-    path("account/logout.html", views.logout, name="logout")
+    path("account/logout.html", views.logout, name="logout"),
+    path("account/billing-history.html", views.billing_history, name="billing_history")
 ]

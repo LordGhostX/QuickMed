@@ -22,3 +22,18 @@ def generate_hash(uniq_id, password, seed="o;(rXaJ4\0VnH6#ml9)B", rounds=100):
     hash = hashlib.sha512((seed + hash + seed).encode()).hexdigest()
 
     return hash
+
+def get_user_history(user, mode="short", test_type="all"):
+    if test_type != "all":
+        # Select test by test type
+        pass
+    history_table = [{"ID": 5000, "type": "Malaria Test", "result": "positive", "date": "01/10/2019 11:59:20", "notes": "Sample Test"}] * 10
+    if mode == "short":
+        history_table = history_table[:5]
+
+    return history_table
+
+def get_billing_history(user):
+    billing_table = [{"ID": 12345, "date": "01/10/2019 11:59:20", "amount": 1000000, "card": "1234-5678-9012-xxxx", "status": "paid"}] * 10
+
+    return billing_table

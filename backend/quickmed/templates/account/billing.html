@@ -3,237 +3,240 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>QuickMed Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8" />
+  <title>QuickMed Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico' %}">
+  <!-- App favicon -->
+  <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico' %}">
 
-    <!-- App css -->
-    <link href="{% static 'account/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'account/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'account/assets/css/theme.min.css' %}" rel="stylesheet" type="text/css" />
+  <!-- App css -->
+  <link href="{% static 'account/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'account/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'account/assets/css/theme.min.css' %}" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
 
-    <!-- Begin page -->
-    <div id="layout-wrapper">
+  <!-- Begin page -->
+  <div id="layout-wrapper">
 
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="vertical-menu">
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu">
 
-            <div data-simplebar class="h-100">
+      <div data-simplebar class="h-100">
 
-                <!-- LOGO -->
-                <div class="navbar-brand-box">
-                    <a href="index.html" class="logo">
-                        <span>
-                            <img src="{% static 'account/assets/images/logo-light.png' %}" alt="">
-                        </span>
-                        <i>
-                            <img src="{% static 'account/assets/images/logo-small.png' %}" alt="">
-                        </i>
-                    </a>
-                </div>
-
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-                    <!-- Left Menu Start -->
-                    <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Menu</li>
-
-                        <li>
-                            <a href="index.html"><i class="feather-home"></i><span>Dashboard</span></a>
-                        </li>
-
-                        <li>
-                            <a href="tests.html"><i class="fas fa-vial"></i><span>Take Test</span></a>
-                        </li>
-
-						<li>
-                            <a href="statistics.html"><i class="fas fa-chart-bar"></i><span>Test Statistics</span></a>
-                        </li>
-
-						<li>
-                            <a href="results.html"><i class="fas fa-history"></i><span>Test History</span></a>
-                        </li>
-
-						<li>
-                            <a href="billing.html"><i class="fas fa-money-check"></i><span>Billing</span></a>
-                        </li>
-
-						<li>
-                            <a href="settings.html"><i class="feather-settings"></i><span>Settings</span></a>
-                        </li>
-
-						<li>
-                            <a href="contact.html"><i class="fas fa-users"></i><span>Contact Us</span></a>
-                        </li>
-
-						<li>
-                            <a href="logout.html"><i class="feather-power"></i><span>Logout</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Sidebar -->
-            </div>
+        <!-- LOGO -->
+        <div class="navbar-brand-box">
+          <a href="index.html" class="logo">
+            <span>
+              <img src="{% static 'account/assets/images/logo-light.png' %}" alt="">
+            </span>
+            <i>
+              <img src="{% static 'account/assets/images/logo-small.png' %}" alt="">
+            </i>
+          </a>
         </div>
-        <!-- Left Sidebar End -->
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+          <!-- Left Menu Start -->
+          <ul class="metismenu list-unstyled" id="side-menu">
+            <li class="menu-title">Menu</li>
 
-            <header id="page-topbar">
-                <div class="navbar-header">
-                    <div class="d-flex align-items-center">
-                        <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">
-                            <i class="fa fa-fw fa-bars"></i>
-                        </button>
+            <li>
+              <a href="index.html"><i class="feather-home"></i><span>Dashboard</span></a>
+            </li>
 
-                        <div class="header-breadcumb">
-                            <h6 class="header-pretitle d-none d-md-block">Pages <i class="feather-chevrons-right"></i> Dashboard <i class="feather-chevrons-right"></i> Billing</h6>
-                            <h2 class="header-title">QuickMed Billing</h2>
-                        </div>
-                    </div>
+            <li>
+              <a href="tests.html"><i class="fas fa-vial"></i><span>Take Test</span></a>
+            </li>
 
-                </div>
-            </header>
+            <li>
+              <a href="statistics.html"><i class="fas fa-chart-bar"></i><span>Test Statistics</span></a>
+            </li>
 
-            <div class="page-content">
-                <div class="container-fluid">
+            <li>
+              <a href="results.html"><i class="fas fa-history"></i><span>Test History</span></a>
+            </li>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="clearfix">
-                                        <div class="float-left">
-                                            <img src="{% static 'account/assets/images/logo-dark.png' %}" alt="">
-                                        </div>
-                                        <div class="float-right">
-                                            <h4 class="m-0 d-print-none">Billing Amount</h4>
-                                        </div>
-                                    </div>
+            <li>
+              <a href="billing.html"><i class="fas fa-money-check"></i><span>Billing</span></a>
+            </li>
 
+            <li>
+              <a href="settings.html"><i class="feather-settings"></i><span>Settings</span></a>
+            </li>
 
-                                    <div class="row mt-4">
-                                        <div class="col-6">
-                                            <h6 class="font-weight-bold">TO:</h6>
+            <li>
+              <a href="contact.html"><i class="fas fa-users"></i><span>Contact Us</span></a>
+            </li>
 
-                                            <address class="line-h-24">
-                                                <b>{{ hospital_name }}</b><br>
-                                                {{ hospital_address }}<br>
-                                                {{ hospital_phone }}
-                                            </address>
-                                        </div><!-- end col -->
-                                        <div class="col-6">
-                                            <div class="mt-3 float-right">
-                                                <p class="mb-2"><strong>Billing Date: </strong> {{ hospital_billing_date }}</p>
-                                                <p class="mb-2"><strong>Order Status: </strong> <span class="badge badge-soft-warning">Unpaid</span></p>
-                                                <p class="m-b-10"><strong>Order ID: </strong> #{{ hospital_billing_ID }}</p>
-                                            </div>
-                                        </div><!-- end col -->
-                                    </div>
-                                    <!-- end row -->
+            <li>
+              <a href="logout.html"><i class="feather-power"></i><span>Logout</span></a>
+            </li>
+          </ul>
+        </div>
+        <!-- Sidebar -->
+      </div>
+    </div>
+    <!-- Left Sidebar End -->
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="table-responsive">
-                                                <table class="table mt-4">
-                                                    <thead>
-                                                    <tr><th>#</th>
-                                                        <th>Item</th>
-                                                        <th>Quantity</th>
-                                                        <th>Unit Cost</th>
-                                                        <th class="text-right">Total</th>
-                                                    </tr></thead>
-                                                    <tbody>
-													{% for i in billing_items %}
-                                                    <tr>
-                                                        <td>{{ i.ID }}</td>
-                                                        <td>
-                                                            <b>{{ i.name }}</b>
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
 
-                                                        </td>
-                                                        <td>{{ i.amount }}</td>
-                                                        <td>&#8358; {{ i.cost }}</td>
-                                                        <td class="text-right">&#8358; {{ i.total}}</td>
-                                                    </tr>
-													{% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="clearfix pt-5">
-                                                <h6 class="text-muted">Notes:</h6>
+      <header id="page-topbar">
+        <div class="navbar-header">
+          <div class="d-flex align-items-center">
+            <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">
+              <i class="fa fa-fw fa-bars"></i>
+            </button>
 
-                                                <small>
-                                                    All accounts are to be paid within 7 days from billing date. To be paid by card or transfer. If account is not paid within 7 days the quickmed account will not be allowed to perfom any tests again.
-                                                </small>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="float-right">
-                                                <h3>&#8358; {{ total_cost }}</h3>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="hidden-print mt-4 mb-4">
-                                        <div class="text-right">
-                                            <a href="settings.html" class="btn btn-info waves-effect waves-light">Set Billing Info</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> <!-- end card-->
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row-->
-
-                </div> <!-- container-fluid -->
+            <div class="header-breadcumb">
+              <h6 class="header-pretitle d-none d-md-block">Account <i class="feather-chevrons-right"></i> Dashboard <i class="feather-chevrons-right"></i> Billing</h6>
+              <h2 class="header-title">QuickMed Billing</h2>
             </div>
-            <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            Copyright © 2019 QuickMed
-                        </div>
-                    </div>
-                </div>
-            </footer>
+          </div>
 
         </div>
-        <!-- end main content-->
+      </header>
+
+      <div class="page-content">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <img src="{% static 'account/assets/images/logo-dark.png' %}" alt="">
+                    </div>
+                    <div class="float-right">
+                      <h4 class="m-0 d-print-none">Monthly Billing Information</h4>
+                    </div>
+                  </div>
+
+
+                  <div class="row mt-4">
+                    <div class="col-6">
+                      <h6 class="font-weight-bold">TO:</h6>
+
+                      <address class="line-h-24">
+                        <b>{{ hospital_name }}</b><br>
+                        {{ hospital_address }}<br>
+                        {{ hospital_phone }}
+                      </address>
+                    </div><!-- end col -->
+                    <div class="col-6">
+                      <div class="mt-3 float-right">
+                        <p class="mb-2"><strong>Billing Date: </strong> {{ hospital_billing_date }}</p>
+                        <p class="m-b-10"><strong>Order ID: </strong> #{{ hospital_billing_ID }}</p>
+                      </div>
+                    </div><!-- end col -->
+                  </div>
+                  <!-- end row -->
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="table-responsive">
+                        <table class="table mt-4">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Item</th>
+                              <th>Quantity</th>
+                              <th>Unit Cost</th>
+                              <th class="text-right">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for i in billing_items %}
+                            <tr>
+                              <td>{{ i.ID }}</td>
+                              <td>
+                                <b>{{ i.name }}</b>
+
+                              </td>
+                              <td>{{ i.amount }}</td>
+                              <td>&#8358; {{ i.cost }}</td>
+                              <td class="text-right">&#8358; {{ i.total}}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="clearfix pt-5">
+                        <h6 class="text-muted">Notes:</h6>
+
+                        <p>
+                          All accounts are to be paid within 7 days from billing date either by card or transfer. If the bill is not paid within 7 days, your quickmed account will not be allowed to perfom any tests again.
+                        </p>
+                      </div>
+
+                    </div>
+                    <div class="col-6">
+                      <div class="float-right">
+                        <h3>&#8358; {{ total_cost }}</h3>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+
+                  <div class="hidden-print mt-4 mb-4">
+                    <div class="text-right">
+                      <a href="billing-history.html" class="btn btn-info waves-effect waves-light"><i class="fas fa-clipboard-list"></i> Billing History</a>
+                      <a href="settings.html#billing-settings" class="btn btn-warning waves-effect waves-light"><i class="fas fa-cogs"></i> Manage Billing Settings</a>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- end card-->
+            </div> <!-- end col -->
+          </div>
+          <!-- end row-->
+
+        </div> <!-- container-fluid -->
+      </div>
+      <!-- End Page-content -->
+
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12">
+              Copyright © 2019 QuickMed
+            </div>
+          </div>
+        </div>
+      </footer>
 
     </div>
-    <!-- END layout-wrapper -->
+    <!-- end main content-->
 
-    <!-- Overlay-->
-    <div class="menu-overlay"></div>
+  </div>
+  <!-- END layout-wrapper -->
+
+  <!-- Overlay-->
+  <div class="menu-overlay"></div>
 
 
-    <!-- jQuery  -->
-    <script src="{% static 'account/assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'account/assets/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'account/assets/js/metismenu.min.js' %}"></script>
-    <script src="{% static 'account/assets/js/waves.js' %}"></script>
-    <script src="{% static 'account/assets/js/simplebar.min.js' %}"></script>
+  <!-- jQuery  -->
+  <script src="{% static 'account/assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'account/assets/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'account/assets/js/metismenu.min.js' %}"></script>
+  <script src="{% static 'account/assets/js/waves.js' %}"></script>
+  <script src="{% static 'account/assets/js/simplebar.min.js' %}"></script>
 
-    <!-- App js -->
-    <script src="{% static 'account/assets/js/theme.js' %}"></script>
+  <!-- App js -->
+  <script src="{% static 'account/assets/js/theme.js' %}"></script>
 
 </body>
+
 </html>
