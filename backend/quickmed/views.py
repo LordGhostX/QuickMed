@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from .models import UserProfile
 from .extras import get_user_history, get_billing_history
@@ -38,15 +37,11 @@ def login(request):
         password = request.POST['password']
 
         user = auth.authenticate(username=email, password=password)
-        print(user)
-
         if user is not None:
             auth.login(request, user)
             return redirect("account/index.html")
         else:
-            messages.info(request, 'invalid credentials')
-            return redirect('login.html')
-
+            return render(request, 'login.html', {"message": "The user does not exist"})
     else:
         return render(request, 'login.html')
 

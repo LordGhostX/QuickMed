@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/favicon-107x108-1.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
   <meta name="description" content="Login to QuickMed to get realtime diagnostics">
 
   <title>Login to QuickMed to get realtime diagnostics</title>
@@ -122,14 +122,11 @@
         <div class="title col-12 col-md-8">
 
           <h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5">
-            <div>
-              {% for message in messages %}
-              <h3> {{message}} </h3>
-              {% endfor %}
-            </div>
+            {% if message %}
+            <span style="color:red">**{{ message }}**</span> </br>
+            {% endif %}
             <a href="index.html#contacts3-f" class="text-danger">Don't have an account? Contact us for one</a>
           </h3>
-
         </div>
       </div>
     </div>
