@@ -1,3 +1,4 @@
 pages/
 *__pycache__
 backend/config.json
+slide/

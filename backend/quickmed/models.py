@@ -8,6 +8,7 @@ class UserProfile(models.Model):
     hospital_name = models.TextField(max_length=100)
     hospital_address = models.TextField(max_length=100)
     hospital_phone = models.TextField(max_length=100)
+    email = models.TextField(max_length=100)
 
     def __str__(self):
         return self.user.username

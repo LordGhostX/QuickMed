@@ -19,18 +19,15 @@ def register(request):
 
         if password1==password2:
             if User.objects.filter(email=email).exists():
-                 return render(request, 'register.html', {"error_messages": "The email has been previously registered"})
+                 return render(request, 'register.html', {"message": "The email is already registered"})
             else:
-
-                user = User.objects.create(username=email,  password=password1, email=email )
+                user = User.objects.create(username=email,  password=password1, email=email)
                 user.set_password(user.password)
                 user.save()
-                profile = UserProfile.objects.create(user=user,hospital_name=hospital_name, hospital_address=hospital_address, hospital_phone=hospital_phone)
+                profile = UserProfile.objects.create(email=email, hospital_name=hospital_name, hospital_address=hospital_address, hospital_phone=hospital_phone)
                 profile.save()
-                print('user created')
-
         else:
-            print('Password not matching')
+            return render(request, 'register.html', {"message": "The passwords don't match"})
         return redirect('login.html')
     else:
         return render(request, 'register.html')

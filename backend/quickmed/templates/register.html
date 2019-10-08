@@ -118,7 +118,12 @@
                 <label for="password-form1-u" class="form-control-label mbr-fonts-style display-7">Confirm Password</label>
                 <input type="password" name="password2" required="required" class="form-control display-7" id="password-form1-u">
               </div>
-              <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-form btn-danger display-4">REGISTER</button></div>
+              <div class="col-md-12 input-group-btn align-center">
+                <button type="submit" class="btn btn-form btn-danger display-4">REGISTER</button>
+                {% if message %}
+                    <p style="color:red">**{{ message }}**</p>
+                {% endif %}
+              </div>
             </div>
 
           </form>
