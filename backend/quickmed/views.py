@@ -4,6 +4,7 @@ from django.contrib.auth.models import User, auth
 from .models import UserProfile
 from .extras import get_user_history, get_billing_history
 
+
 def index(request):
     return render(request, "index.html")
 
@@ -16,16 +17,17 @@ def register(request):
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
+        UserProfile_id=email
 
         if password1==password2:
             if User.objects.filter(email=email).exists():
                  return render(request, 'register.html', {"error_messages": "The email has been previously registered"})
             else:
 
-                user = User.objects.create(username=email,  password=password1, email=email )
+                user = User.objects.create(username=email, password=password1, email=email )
                 user.set_password(user.password)
                 user.save()
-                profile = UserProfile.objects.create(user=user,hospital_name=hospital_name, hospital_address=hospital_address, hospital_phone=hospital_phone)
+                profile = UserProfile.objects.create(user=user, hospital_name=hospital_name, hospital_address=hospital_address, hospital_phone=hospital_phone)
                 profile.save()
                 print('user created')
 
