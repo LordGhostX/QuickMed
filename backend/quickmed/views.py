@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from .models import UserProfile
 from .extras import get_user_history, get_billing_history
@@ -21,18 +20,17 @@ def register(request):
 
         if password1==password2:
             if User.objects.filter(email=email).exists():
-                 return render(request, 'register.html', {"error_messages": "The email has been previously registered"})
+                 return render(request, 'register.html', {"message": "The user is already registered"})
             else:
+
 
                 user = User.objects.create(username=email, password=password1, email=email )
                 user.set_password(user.password)
                 user.save()
                 profile = UserProfile.objects.create(user=user, hospital_name=hospital_name, hospital_address=hospital_address, hospital_phone=hospital_phone)
                 profile.save()
-                print('user created')
-
         else:
-            print('Password not matching')
+            return render(request, 'register.html', {"message": "The passwords don't match"})
         return redirect('login.html')
     else:
         return render(request, 'register.html')
@@ -43,15 +41,11 @@ def login(request):
         password = request.POST['password']
 
         user = auth.authenticate(username=email, password=password)
-        print(user)
-
         if user is not None:
             auth.login(request, user)
             return redirect("account/index.html")
         else:
-            messages.info(request, 'invalid credentials')
-            return redirect('login.html')
-
+            return render(request, 'login.html', {"message": "The user does not exist"})
     else:
         return render(request, 'login.html')
 
@@ -151,3 +145,26 @@ def billing_history(request):
     params = {"history": get_billing_history("test")}
 
     return render(request, "account/billing-history.html", params)
+
+def edit_user_profile(request):
+    if request.method == 'POST':
+        hospital_name = request.POST.get['hospital_name']
+        hospital_address = request.POST.get['hospital_address']
+        hospital_phone = request.POST.get['hospital_phone']
+        profile = UserProfile.objects.get(pk=profile_id)
+        profile.save()
+    else:
+        return render(request, "settings.html")
+
+def edit_user(request, user_id):
+    if request.method == 'POST':
+        email = request.POST.get['email']
+        password1 = request.POST.get['password1']
+
+
+        user = User.objects.get(pk=user_id )
+        user.set_password(user.password)
+        user.save()
+        print('saved')
+    else:
+        return render(request, "settings.html")

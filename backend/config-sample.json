@@ -1,0 +1,11 @@
+{
+  "database": {
+    "default": {
+      "ENGINE": "django.db.backends.postgresql",
+      "NAME": "quickmed",
+      "USER": "postgres",
+      "PASSWORD": "your password here",
+      "HOST": "localhost"
+    }
+  }
+}

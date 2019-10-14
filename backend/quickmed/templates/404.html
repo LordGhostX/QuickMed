@@ -1,19 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <title>QuickMed Dashboard</title>
+  <title>404 - Page Not Found</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- App favicon -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico">
+  <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico' %}">
 
   <!-- App css -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-  <link href="assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+  <link href="{% static 'account/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'account/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'account/assets/css/theme.min.css' %}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -31,7 +32,7 @@
                   <div class="p-5">
 
                     <div class="text-center">
-                      <img src="assets/images/404-error.svg" alt="error" height="140">
+                      <img src="{% static 'account/assets/images/404-error.svg' %}" alt="error" height="140">
                       <h1 class="h4 mb-3 mt-4">Page Not Found</h1>
                       <p class="text-muted mb-4 w-75 m-auto">It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. Here's a little tip that might help you get back on track.</p>
                     </div>
@@ -55,18 +56,14 @@
   <!-- end page -->
 
   <!-- jQuery  -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/metismenu.min.js"></script>
-  <script src="assets/js/waves.js"></script>
-  <script src="assets/js/simplebar.min.js"></script>
+  <script src="{% static 'account/assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'account/assets/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'account/assets/js/metismenu.min.js' %}"></script>
+  <script src="{% static 'account/assets/js/waves.js' %}"></script>
+  <script src="{% static 'account/assets/js/simplebar.min.js' %}"></script>
 
   <!-- App js -->
-  <script src="assets/js/theme.js"></script>
+  <script src="{% static 'account/assets/js/theme.js' %}"></script>
 
 </body>
-
-
-<!-- Mirrored from myrathemes.com/drezoc/vertical-dark/auth-404.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Oct 2019 01:39:14 GMT -->
-
 </html>
