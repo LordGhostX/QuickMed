@@ -80,11 +80,6 @@ def statistics(request):
 
     return render(request, "account/statistics.html", params)
 
-def settings(request):
-    params = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "account_email": "test@test.com", "card_number": "1234-5678-9012-xxxx"}
-
-    return render(request, "account/settings.html", params)
-
 def contact(request):
     return render(request, "account/contact.html")
 
@@ -147,24 +142,25 @@ def billing_history(request):
     return render(request, "account/billing-history.html", params)
 
 def edit_user_profile(request):
+    user = request.user
+
     if request.method == 'POST':
-        hospital_name = request.POST.get['hospital_name']
-        hospital_address = request.POST.get['hospital_address']
-        hospital_phone = request.POST.get['hospital_phone']
-        profile = UserProfile.objects.get(pk=profile_id)
-        profile.save()
-    else:
-        return render(request, "settings.html")
+        user.profile.hospital_name = request.POST['hospital_name']
+        user.profile.hospital_address = request.POST['hospital_address']
+        user.profile.hospital_phone = request.POST['hospital_phone']
 
-def edit_user(request, user_id):
-    if request.method == 'POST':
-        email = request.POST.get['email']
-        password1 = request.POST.get['password1']
+        user.profile.save()
+
+    context = {"user":user,}
+    return render(request, "account/settings.html", context)
+
+def edit_user(self):
+
+    email = self.cleaned_data['email']
+    password1 = self.cleaned_data['password1']
 
 
-        user = User.objects.get(pk=user_id )
-        user.set_password(user.password)
-        user.save()
-        print('saved')
-    else:
-        return render(request, "settings.html")
+    user=User.objects.create(username=email, password=password1, email=email )
+    user.set_password(user.password)
+    user.save()
+    print('saved')
