@@ -1,4 +1,3 @@
 pages/
 *__pycache__
 backend/config.json
-backend/models

@@ -1,0 +1,5 @@
+tensorflow==2.0.0a0
+Django==2.2.4
+numpy==1.17.0
+requests==2.22.0
+Pillow==6.2.0

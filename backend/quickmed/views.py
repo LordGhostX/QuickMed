@@ -22,8 +22,6 @@ def register(request):
             if User.objects.filter(email=email).exists():
                  return render(request, 'register.html', {"message": "The user is already registered"})
             else:
-
-
                 user = User.objects.create(username=email, password=password1, email=email )
                 user.set_password(user.password)
                 user.save()
