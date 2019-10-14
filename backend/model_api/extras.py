@@ -32,3 +32,11 @@ def preprocess_malaria(img_data, width=64, height=64):
     img_raw = np.array(img_data) / 255 / 255
 
     return img_raw
+
+def preprocess_skin_cancer(img_data, width=224, height=224):
+    # Accuracy - 89.697%
+    img_data = img_data.convert("RGB")
+    img_data = img_data.resize((height, width))
+    img_raw = np.array(img_data) / 255
+
+    return img_raw
