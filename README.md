@@ -9,10 +9,15 @@ Online platform that uses artificial intelligence to automate hospital diagnosti
 * Project logo
 * Backend - Frontend Django integration
 * Database setting up
+* AI models setups and serving
 
 ## TO-DO
-* AI models setups and serving
 * Domain registration & hosting
+
+## Setting Up
+```bash
+pip install --upgrade -r requirements.txt
+```
 
 
 ## Authors
