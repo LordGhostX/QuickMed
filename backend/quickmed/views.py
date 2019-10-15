@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 from .models import UserProfile
 from .extras import get_user_history, get_billing_history
 
@@ -153,12 +155,19 @@ def edit_user_profile(request):
     return render(request, "account/settings.html", context)
 
 def edit_user(self):
-
     email = self.cleaned_data['email']
     password1 = self.cleaned_data['password1']
-
 
     user=User.objects.create(username=email, password=password1, email=email )
     user.set_password(user.password)
     user.save()
     print('saved')
+
+def get_result(request):
+    if request.method == 'POST' and request.FILES['test_image']:
+        myfile = request.FILES['test_image']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        print(uploaded_file_url)
+    return redirect("tests.html")

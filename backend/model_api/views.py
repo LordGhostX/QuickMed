@@ -3,10 +3,10 @@ from django.http import HttpResponse
 from .extras import get_image_data, dump_json, preprocess_malaria, preprocess_skin_cancer
 from tensorflow.keras.models import load_model
 
-malaria_model = load_model("models\malaria.h5")
+#malaria_model = load_model("models\malaria.h5")
 print("Loaded Malaria Model")
 
-skin_cancer_model = load_model("models\skin_cancer.h5")
+#skin_cancer_model = load_model("models\skin_cancer.h5")
 print("Loaded Skin Cancer Model")
 
 # Create your views here.
