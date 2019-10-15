@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .extras import get_image_data, dump_json, preprocess_malaria, preprocess_skin_cancer
+from .extras import get_image_data, dump_json, preprocess_malaria, preprocess_skin_cancer, validate_API
 from tensorflow.keras.models import load_model
 
 malaria_model = load_model("models\malaria.h5")
@@ -14,6 +14,9 @@ def index(request):
     return render(request, "api-index.html")
 
 def malaria(request):
+    if not validate_API(request.GET.get("key", "~~~")):
+        return HttpResponse(dump_json({"success": False, "error": "Invalid Creds", "test_type": "malaria", "message": None}))
+
     try:
         img_url = request.GET.get("img_url", None)
 
@@ -37,6 +40,9 @@ def malaria(request):
         return HttpResponse(dump_json({"success": False, "error": "An error occured during the test", "test_type": "malaria", "message": None}))
 
 def skin_cancer(request):
+    if not validate_API(request.GET.get("key", "~~~")):
+        return HttpResponse(dump_json({"success": False, "error": "Invalid Creds", "test_type": "skin_cancer", "message": None}))
+
     try:
         img_url = request.GET.get("img_url", None)
 

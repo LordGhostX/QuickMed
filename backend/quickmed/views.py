@@ -174,13 +174,13 @@ def get_result(request):
             url = request.get_host() + "/api/malaria/"
             if not url.startswith("http"):
                 url = "http://" + url
-            r = get(url, params={"img_url": uploaded_file_url}).json()
+            r = get(url, params={"img_url": uploaded_file_url, "key": "X1!/3&96)$@}636DXiT&Wl<8C)2obRdm0SdATf"}).json()
             return render(request, "account/get_result.html", {"test_type": "Malaria", "test_result": r["message"], "img_url": uploaded_file_url})
         elif request.POST.get("test_type") == "skin_cancer":
             url = request.get_host() + "/api/skin_cancer/"
             if not url.startswith("http"):
                 url = "http://" + url
-            r = get(url, params={"img_url": uploaded_file_url}).json()
+            r = get(url, params={"img_url": uploaded_file_url, "key": "X1!/3&96)$@}636DXiT&Wl<8C)2obRdm0SdATf"}).json()
             return render(request, "account/get_result.html", {"test_type": "Skin Cancer", "test_result": r["message"], "img_url": uploaded_file_url})
     if request.GET.get("test_id", None):
         # Display Past Test Result

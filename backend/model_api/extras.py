@@ -30,3 +30,6 @@ def preprocess_skin_cancer(img_data, width=224, height=224):
     img_raw = np.array(img_data) / 255
 
     return img_raw
+
+def validate_API(key):
+    return key == "X1!/3&96)$@}636DXiT&Wl<8C)2obRdm0SdATf"
