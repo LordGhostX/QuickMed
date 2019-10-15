@@ -108,20 +108,19 @@
       <div class="page-content">
         <div class="container-fluid">
 
-          <div class="row">
+          <form method="post" enctype="multipart/form-data" class="row" action="get_result.html">
+            {% csrf_token %}
+            <input type="hidden" value="skin_cancer" name="test_type">
             <div class="col-lg-12">
               <div class="card card-body">
-                <h4 class="card-title">This test takes a photograph of a skin infected with cancer then uses QuickMed's artificial intelligence to classify whether the cancer is malignant or benign without the need of special equipments and tests.
-                </h4>
+                <h4 class="card-title">This test takes a photograph of a skin infected with cancer then uses QuickMed's artificial intelligence to classify whether the cancer is malignant or benign without the need of special equipments and tests.</h4>
               </div>
             </div>
             <div class="col-6">
               <div class="card">
                 <div class="card-body">
                   <p class="card-subtitle mb-4">Please upload the skin photograph to get the clasification.</p>
-                  <form method="post">
-                    <input type="file" accept="image/*" data-height="300">
-                  </form>
+                  <input type="file" accept="image/*" data-height="300" name="test_image">
                 </div>
                 <!-- end card-body-->
               </div>
@@ -131,7 +130,7 @@
 
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Add notes about test</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="test_notes"></textarea>
 
               </div>
 
@@ -140,7 +139,7 @@
               <div class="card">
                 <div class="card-body">
 
-                  <button type="button" class="btn btn-success btn-sm btn-block">Get Results</button>
+                  <button type="submit" class="btn btn-success btn-sm btn-block">Get Results</button>
 
                 </div>
                 <!-- end card-body-->
@@ -148,7 +147,7 @@
               <!-- end card -->
 
             </div>
-          </div>
+          </form>
           <!-- end row-->
 
           <div class="row">

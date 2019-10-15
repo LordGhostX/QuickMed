@@ -176,5 +176,11 @@ def get_result(request):
                 url = "http://" + url
             r = get(url, params={"img_url": uploaded_file_url}).json()
             return render(request, "account/get_result.html", {"test_type": "Malaria", "test_result": r["message"], "img_url": uploaded_file_url})
+        elif request.POST.get("test_type") == "skin_cancer":
+            url = request.get_host() + "/api/skin_cancer/"
+            if not url.startswith("http"):
+                url = "http://" + url
+            r = get(url, params={"img_url": uploaded_file_url}).json()
+            return render(request, "account/get_result.html", {"test_type": "Skin Cancer", "test_result": r["message"], "img_url": uploaded_file_url})
 
     return redirect("tests.html")
