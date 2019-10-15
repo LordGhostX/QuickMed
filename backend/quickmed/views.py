@@ -182,5 +182,8 @@ def get_result(request):
                 url = "http://" + url
             r = get(url, params={"img_url": uploaded_file_url}).json()
             return render(request, "account/get_result.html", {"test_type": "Skin Cancer", "test_result": r["message"], "img_url": uploaded_file_url})
+    if request.GET.get("test_id", None):
+        # Display Past Test Result
+        pass
 
     return redirect("tests.html")
