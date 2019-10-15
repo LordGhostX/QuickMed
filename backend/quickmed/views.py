@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from .models import UserProfile
 from .extras import get_user_history, get_billing_history
-
+from requests import get
 
 def index(request):
     return render(request, "index.html")
@@ -169,5 +169,12 @@ def get_result(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
-        print(uploaded_file_url)
+
+        if request.POST.get("test_type") == "malaria":
+            url = request.get_host() + "/api/malaria/"
+            if not url.startswith("http"):
+                url = "http://" + url
+            r = get(url, params={"img_url": uploaded_file_url}).json()
+            return render(request, "account/get_result.html", {"test_type": "Malaria", "test_result": r["message"], "img_url": uploaded_file_url})
+
     return redirect("tests.html")
