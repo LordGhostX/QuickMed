@@ -13,6 +13,9 @@ Online platform that uses artificial intelligence to automate hospital diagnosti
 
 ## TO-DO
 * Domain registration & hosting
+* User Session Management
+* Usage Logging
+* Proper DB integration
 
 ## Setting Up
 ```bash
