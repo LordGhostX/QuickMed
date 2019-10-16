@@ -5,6 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from .models import UserProfile
 from .extras import get_user_history, get_billing_history
 from requests import get
+from django.http import HttpResponseRedirect
 
 def index(request):
     return render(request, "index.html")
@@ -133,8 +134,11 @@ def test_oct(request):
     return render(request, "account/test-oct.html", params)
 
 def logout(request):
-    # delete user cookies
-    return redirect("../login.html")
+    response = HttpResponseRedirect('../login.html')
+    response.delete_cookie('email')
+    response.delete_cookie('password')
+    return response
+    
 
 def billing_history(request):
     params = {"history": get_billing_history("test")}
