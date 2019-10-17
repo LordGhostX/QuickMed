@@ -148,8 +148,8 @@ def process_response(self, request, response):
 def logout(request):
     response = HttpResponseRedirect('../login.html')
     try:
+        request.session.delete_test_cookie()
         del request.session['user_id']
-        response = HttpResponseRedirect('../login.html')
         response.delete_cookie('email')
         response.delete_cookie('password')
     except KeyError:
