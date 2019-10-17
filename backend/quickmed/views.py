@@ -5,6 +5,8 @@ from django.core.files.storage import FileSystemStorage
 from .models import UserProfile
 from .extras import get_user_history, get_billing_history
 from requests import get
+from django.http import HttpResponseRedirect
+from django.contrib.sessions.models import Session
 
 def index(request):
     return render(request, "index.html")
@@ -43,6 +45,8 @@ def login(request):
         user = auth.authenticate(username=email, password=password)
         if user is not None:
             auth.login(request, user)
+            request.session['user_id'] = user.id
+            request.session.set_test_cookie()
             return redirect("account/index.html")
         else:
             return render(request, 'login.html', {"message": "The user does not exist"})
@@ -132,9 +136,26 @@ def test_oct(request):
 
     return render(request, "account/test-oct.html", params)
 
+def process_response(self, request, response):
+        #if user and no cookie, set cookie
+        if request.user.is_authenticated() and not request.COOKIES.get('user'):
+            response.set_cookie("user", 'Hello Cookie')
+        elif not request.user.is_authenticated() and request.COOKIES.get('user'):
+            #else if if no user and cookie remove user cookie, logout
+            response.delete_cookie("user")
+        return response
+
 def logout(request):
-    # delete user cookies
-    return redirect("../login.html")
+    response = HttpResponseRedirect('../login.html')
+    try:
+        request.session.delete_test_cookie()
+        del request.session['user_id']
+        response.delete_cookie('email')
+        response.delete_cookie('password')
+    except KeyError:
+        pass
+    return response
+
 
 def billing_history(request):
     params = {"history": get_billing_history("test")}
