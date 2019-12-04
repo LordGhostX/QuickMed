@@ -1,5 +1,6 @@
 import string
 import random
+from . models import Result
 
 def generate_password(minimum=16, maximum=25):
     # Generates a random password
@@ -15,14 +16,9 @@ def generate_password(minimum=16, maximum=25):
     return password
 
 def get_user_history(user, mode="short", test_type="all"):
-    if test_type != "all":
-        # Select test by test type
-        pass
-    history_table = [{"ID": 5000, "type": "Malaria Test", "result": "positive", "date": "01/10/2019 11:59:20", "notes": "Sample Test"}] * 10
-    if mode == "short":
-        history_table = history_table[:5]
+    results = Result.objects.all()
 
-    return history_table
+    return results
 
 def get_billing_history(user):
     billing_table = [{"ID": 12345, "date": "01/10/2019 11:59:20", "amount": 1000000, "card": "1234-5678-9012-xxxx", "status": "paid"}] * 10

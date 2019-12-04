@@ -112,12 +112,12 @@ def billing(request):
     return render(request, "account/billing.html", {**hospital_details, **params})
 
 def test_history(request):
-    params = {"history": get_user_history("test", "full")}
+    params = {"history":get_user_history("test", "full")}
 
     return render(request, "account/results.html", params)
 
 def test_malaria(request):
-    params = {"history": get_user_history("test", test_type="malaria")}
+    params = {"history":get_user_history("test", test_type="malaria")}
 
     return render(request, "account/test-malaria.html", params)
 
