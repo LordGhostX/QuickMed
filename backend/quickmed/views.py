@@ -7,6 +7,7 @@ from .extras import get_user_history, get_billing_history
 from requests import get
 from django.http import HttpResponseRedirect
 from django.contrib.sessions.models import Session
+from django.contrib.auth.decorators import  login_required
 
 def index(request):
     return render(request, "index.html")
@@ -52,22 +53,22 @@ def login(request):
             return render(request, 'login.html', {"message": "The user does not exist"})
     else:
         return render(request, 'login.html')
-
+@login_required
 def dashboard(request):
     # call from db
     params = {"malaria": 378, "skin_cancer": 289, "xray": 198, "OCT": 135, "total": 865}
     params["history"] = get_user_history("test")
 
     return render(request, "account/index.html", params)
-
+@login_required
 def redirect_dashboard(request):
     return redirect("index.html")
-
+@login_required
 def taketest(request):
     params = {"history": get_user_history("test")}
 
     return render(request, "account/tests.html", params)
-
+@login_required
 def statistics(request):
     test_items = ["malaria", "xray", "skin_cancer", "OCT"]
     test_costs = {
@@ -86,7 +87,7 @@ def statistics(request):
 
 def contact(request):
     return render(request, "account/contact.html")
-
+@login_required
 def billing(request):
     hospital_details = {"hospital_name": "QuickMed Sample", "hospital_address": "QuickMed Sample Address", "hospital_phone": "QuickMed Sample Phone", "hospital_billing_date": "QuickMed Sample Date", "hospital_billing_ID": 12345}
 
@@ -110,32 +111,32 @@ def billing(request):
     params["total_cost"] = total_cost
 
     return render(request, "account/billing.html", {**hospital_details, **params})
-
+@login_required
 def test_history(request):
     params = {"history":get_user_history("test", "full")}
 
     return render(request, "account/results.html", params)
-
+@login_required
 def test_malaria(request):
     params = {"history":get_user_history("test", test_type="malaria")}
 
     return render(request, "account/test-malaria.html", params)
-
+@login_required
 def test_xray(request):
     params = {"history": get_user_history("test", test_type="xray")}
 
     return render(request, "account/test-xray.html", params)
-
+@login_required
 def test_skin_cancer(request):
     params = {"history": get_user_history("test", test_type="skin_cancer")}
 
     return render(request, "account/test-skin-cancer.html", params)
-
+@login_required
 def test_oct(request):
     params = {"history": get_user_history("test", test_type="oct")}
 
     return render(request, "account/test-oct.html", params)
-
+@login_required
 def process_response(self, request, response):
         #if user and no cookie, set cookie
         if request.user.is_authenticated() and not request.COOKIES.get('user'):
@@ -144,7 +145,7 @@ def process_response(self, request, response):
             #else if if no user and cookie remove user cookie, logout
             response.delete_cookie("user")
         return response
-
+@login_required
 def logout(request):
     response = HttpResponseRedirect('../login.html')
     try:
@@ -156,12 +157,12 @@ def logout(request):
         pass
     return response
 
-
+@login_required
 def billing_history(request):
     params = {"history": get_billing_history("test")}
 
     return render(request, "account/billing-history.html", params)
-
+@login_required
 def edit_user_profile(request):
     user = request.user
 
@@ -174,7 +175,7 @@ def edit_user_profile(request):
 
     context = {"user":user,}
     return render(request, "account/settings.html", context)
-
+@login_required
 def edit_user(self):
     email = self.cleaned_data['email']
     password1 = self.cleaned_data['password1']
@@ -183,7 +184,7 @@ def edit_user(self):
     user.set_password(user.password)
     user.save()
     print('saved')
-
+@login_required
 def get_result(request):
     if request.method == 'POST' and request.FILES['test_image']:
         key = "X1!/3&96)$@}636DXiT&Wl<8C)2obRdm0SdATf"
