@@ -12,17 +12,11 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+NULL_AND_BLANK = {'null': True, 'blank': True}
+
 class Result(models.Model):
+    creator = models.ForeignKey(User, **NULL_AND_BLANK, on_delete=models.CASCADE)
     test_type = models.CharField(max_length=100)
     test_results = models.CharField(max_length=100)
-    date = datetime.now()
+    created_at = models.DateTimeField(auto_now_add=True)
     notes = models.TextField(max_length= 500)
-
-    def __str__(self):
-        return self.user.username
-
-class Statistics(models.Model):
-    tests_today = int
-    tests_this_week = int
-    tests_this_month = int
-    test_all = int

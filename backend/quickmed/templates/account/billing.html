@@ -127,14 +127,14 @@
                       <h6 class="font-weight-bold">TO:</h6>
 
                       <address class="line-h-24">
-                        <b>{{ hospital_name }}</b><br>
-                        {{ hospital_address }}<br>
-                        {{ hospital_phone }}
+                        <b>{{user.profile.hospital_name}}</b><br>
+                        {{user.profile.hospital_address}}<br>
+                        {{user.profile.hospital_phone}}
                       </address>
                     </div><!-- end col -->
                     <div class="col-6">
                       <div class="mt-3 float-right">
-                        <p class="mb-2"><strong>Billing Date: </strong> {{ hospital_billing_date }}</p>
+                        <p class="mb-2"><strong>Billing Date: </strong> 30th of December</p>
                         <p class="m-b-10"><strong>Order ID: </strong> #{{ hospital_billing_ID }}</p>
                       </div>
                     </div><!-- end col -->

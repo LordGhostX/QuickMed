@@ -23,7 +23,9 @@ urlpatterns = [
     path("account/test-skin-cancer.html", views.test_skin_cancer, name="skin_cancer_test"),
     path("account/test-oct.html", views.test_oct, name="skin_oct"),
     path("account/logout.html", views.logout, name="logout"),
-    path("account/billing-history.html", views.billing_history, name="billing_history")
+    path("account/billing-history.html", views.billing_history, name="billing_history"),
+    path("account/payment.html", views.PaymentView.as_view(), name="payment")
+
 ]
 
 if settings.DEBUG:

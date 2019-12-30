@@ -20,4 +20,5 @@ urlpatterns = [
     path("", include("quickmed.urls")),
     path("api/", include("model_api.urls")),
     path('admin/', admin.site.urls),
+
 ]

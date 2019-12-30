@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["127.0.0.1"]
 INSTALLED_APPS = [
     'quickmed',
     'model_api',
+    "ravepay",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,3 +124,5 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+RAVE_PUBLIC_KEY="FLWPUBK-43d800fac3c1d84e5751c07e77bb7f1b-X"
+RAVE_SECRET_KEY="FLWSECK-26dc6f1472e18f1102db6b3f7c427994-X"

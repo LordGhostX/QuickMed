@@ -15,10 +15,7 @@ def generate_password(minimum=16, maximum=25):
     password = "".join(random.sample(char_list, random.randint(minimum, maximum)))
     return password
 
-def get_user_history(user, mode="short", test_type="all"):
-    results = Result.objects.all()
 
-    return results
 
 def get_billing_history(user):
     billing_table = [{"ID": 12345, "date": "01/10/2019 11:59:20", "amount": 1000000, "card": "1234-5678-9012-xxxx", "status": "paid"}] * 10

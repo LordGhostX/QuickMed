@@ -1,0 +1,26 @@
+<form>
+      <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+        <h3>SUPPORT NATURE WITH AS LOW AS $1</h3>
+        <button type="button" onClick="payWithRave()">Pay Here</button>
+    </form>
+    <script>
+        const publicKey = "{{ key }}";
+
+        function payWithRave() {
+            var x = getpaidSetup({
+                PBFPubKey: publicKey,
+                customer_email: "user@example.com",
+                amount: 1,
+                customer_phone: "234099940409",
+                currency: "USD",
+                txref: "rave-123456",
+                custom_title: "Wildlife Park",
+                onclose: function() {},
+                callback: function(response) {
+                    var txref = response.tx.txRef;
+                    console.log("This is the response returned after a charge", response);
+                    x.close();
+                }
+            });
+        }
+    </script>

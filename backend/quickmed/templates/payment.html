@@ -1,0 +1,27 @@
+<form>
+       <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+        <h3>Pay off your Quickmed Dues</h3>
+        <button type="button" onClick="payWithRave()">Make Payment</button>
+    </form>
+    <script>
+        const publicKey = "FLWPUBK-43d800fac3c1d84e5751c07e77bb7f1b-X";
+
+        function payWithRave() {
+            var x = getpaidSetup({
+                PBFPubKey: publicKey,
+                customer_email: "{{user.email}}",
+                amount: {{total_cost}},
+                customer_phone: "234099940409",
+                payment_plan: 9968,
+                currency: "NGN",
+                txref: "rave-123456",
+                custom_title: "Quickmed",
+                onclose: function() {},
+                callback: function(response) {
+                    var txref = response.tx.txRef;
+                    console.log("This is the response returned after a charge", response);
+                    x.close();
+                }
+            });
+        }
+    </script>
